@@ -1,0 +1,45 @@
+<%= form_for(@volonteer) do |f| %>
+  <% if @volonteer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@volonteer.errors.count, "error") %> prohibited this volonteer from being saved:</h2>
+
+      <ul>
+      <% @volonteer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :surname %><br>
+    <%= f.text_field :surname %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :about %><br>
+    <%= f.text_area :about %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :volontary_type_id %><br>
+    <%= f.number_field :volontary_type_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

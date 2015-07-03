@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Volonteers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Age</th>
+      <th>City</th>
+      <th>About</th>
+      <th>User</th>
+      <th>Volontary type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @volonteers.each do |volonteer| %>
+      <tr>
+        <td><%= volonteer.name %></td>
+        <td><%= volonteer.surname %></td>
+        <td><%= volonteer.age %></td>
+        <td><%= volonteer.city %></td>
+        <td><%= volonteer.about %></td>
+        <td><%= volonteer.user_id %></td>
+        <td><%= volonteer.volontary_type_id %></td>
+        <td><%= link_to 'Show', volonteer %></td>
+        <td><%= link_to 'Edit', edit_volonteer_path(volonteer) %></td>
+        <td><%= link_to 'Destroy', volonteer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Volonteer', new_volonteer_path %>
