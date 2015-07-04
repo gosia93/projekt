@@ -28,6 +28,10 @@
     <%= f.text_area :about %>
   </div>
   <div class="field">
+    <%= f.label :volontary %><br>
+   <%= collection_select(:organisation, :volontary_type_id, VolontaryType.all, :id, :name, {prompt: true}) %>
+  </div>
+  <div class="field">
     <%= f.label :user_id %><br>
     <%= f.number_field :user_id %>
   </div>

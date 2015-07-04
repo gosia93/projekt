@@ -35,10 +35,11 @@
     <%= f.label :user_id %><br>
     <%= f.number_field :user_id %>
   </div>
-  <div class="field">
-    <%= f.label :volontary_type_id %><br>
-    <%= f.number_field :volontary_type_id %>
+   <div class="field">
+    <%= f.label :volontary %><br>
+   <%= collection_select(:volonteer, :volontary_type_id, VolontaryType.all, :id, :name, {prompt: true}) %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
