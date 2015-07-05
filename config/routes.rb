@@ -1,9 +1,39 @@
 Rails.application.routes.draw do
+  
+
+  resources :roles
+  devise_for :users do
+    resources :organisations
+    resources :individuals
+    resources :volonteers
+  end
+ 
+
+
+  resources :users
   resources :photos
   resources :volontary_types
-  resources :organisations
-  resources :individuals
-  resources :volonteers
+
+   get 'home/index'
+
+  get 'volonteer_home/index' 
+
+  get 'organisation_home/index'
+
+  get 'individual_home/index'
+
+  get 'look_for_volonteer/index'
+
+  scope 'look_for_volonteer' do
+
+    get 'organisation_home/index'
+
+    get 'individual_home/index'
+
+  end
+
+
+  root to: "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

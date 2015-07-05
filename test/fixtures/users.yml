@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  login: MyString
+  roleable_id: 1
+  roleable_type: MyString
+
+two:
+  login: MyString
+  roleable_id: 1
+  roleable_type: MyString
