@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Volontary</title>
+  <title>Strefa wolontariatu</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<% if user_signed_in? %>
-  Signed in as <%= current_user.email %>. Not you?
-  <%= link_to "Twój profil", edit_user_registration_path %>
-  <%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %>
-<% else %>
-  <%= link_to "Rejestracja", new_user_registration_path %> or <%= link_to "Logowanie", new_user_session_path %>
-<% end %>
+	<nav class="navbar navbar-default">
+  		<div class="container-fluid">
+  			<ul class="nav navbar-nav navbar-right ">
+  				<li><%= link_to "Regulamin" %></li>
+				<% if user_signed_in? %>
+  					Zalogowany jako <%= current_user.email %>. 
+ 					<li> <%= link_to "Twój profil", edit_user_registration_path %></li>
+ 					<li> <%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %></li>
+				<% else %>
+  					<li><%= link_to "Rejestracja", new_user_registration_path %></li>
+  					<li><%= link_to "Logowanie", new_user_session_path %></li>
+			<% end %>
+			</ul>
+		</div>
+	</nav>
  
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, id: "flash_#{name}" %>
