@@ -6,17 +6,16 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class = "back">
 	<nav class="navbar navbar-default">
   		<div class="container-fluid">
   			<ul class="nav navbar-nav navbar-right ">
-  				<li><%= link_to "Regulamin" %></li>
+  				<li><%= link_to "Regulamin", rule_index_path %></li>
 				<% if user_signed_in? %>
   					Zalogowany jako <%= current_user.email %>. 
  					<li> <%= link_to "Twój profil", edit_user_registration_path %></li>
  					<li> <%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %></li>
 				<% else %>
-  					<li><%= link_to "Rejestracja", new_user_registration_path %></li>
   					<li><%= link_to "Logowanie", new_user_session_path %></li>
 			<% end %>
 			</ul>
@@ -26,7 +25,12 @@
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, id: "flash_#{name}" %>
 <% end %>
+<div class="container">
 <%= yield %>
+</div>
+ <!-- Footer-->
+
+    <footer class="footer "> <span>  Małgorzata Koselak | Projekt licencjacki 2015 | <%= link_to "O projekcie", about_index_path %> </span></footer>
 
 </body>
 </html>

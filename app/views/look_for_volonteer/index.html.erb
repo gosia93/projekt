@@ -1,7 +1,21 @@
 <div class="page-header-my">
-	<h1 class="text-center">Strefa Wolontariatu</h1>
+	<h1 class="text-center title">STREFA WOLONTARIATU</h1>
 </div>	
-	<ul>
-		<li><%= link_to 'Organizacje', organisation_home_index_path%></li>
-		<li><%= link_to 'Osoby prywatne', individual_home_index_path%></li>
-	</ul>
+<ol class="breadcrumb">
+  <li><%= link_to 'Strona główna', home_index_path %></li>
+  <li class="active">Szukam wolontariusza</li>
+</ol>
+<div class="images">
+	<div class="row">
+		<div class= "col-lg-4 col-lg-offset-1">
+    		<%= link_to organisation_home_index_path do %>
+    		<%= image_tag "organizacje copy.png", size: "550x325", alt: "Organizacje" %>
+			<% end %>
+		</div>
+		<div class="col-lg-5 col-lg-offset-1">
+			<%= link_to individual_home_index_path do %>
+    		<%= image_tag "osoba_prywatna copy.png", size: "550x325", alt: "Osoby prywatne" %>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,6 +1,11 @@
 <div class="page-header-my">
-	<h1 class="text-center">Strefa organizacji</h1>
+	<h1 class="text-center title">STREFA ORGANIZACJI</h1>
 </div>
+<ol class="breadcrumb">
+  <li><%= link_to 'Strona główna', home_index_path %></li>
+  <li><%= link_to 'Szukam wolontariusza', look_for_volonteer_index_path %></li>
+  <li class="active">Strefa organizacji</li>
+</ol>
 	<nav>
     	<div class="container-fluid">
        		<div class"navbar-header">
@@ -13,12 +18,12 @@
       		 </div>
     	</div>
     	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-       		<ul class="nav nav-justified nav-org nav-all ">
+       		<ul class="nav nav-justified nav-org nav-all menu-text ">
         		<li class="active">
             		<%= link_to 'Strona główna', home_index_path %>
        			</li>
        			<li class="active">
-       				<%= link_to 'Zarejestruj organizację', home_index_path %>
+       				<%= link_to 'Zarejestruj organizację', new_user_registration_path %>
        			</li>
        			<li class="active">
        				<%= link_to 'Wyszukaj wolontariusza', home_index_path %>
@@ -26,3 +31,11 @@
       		</ul>
     	</div>
    </nav>
+  <div class="col-lg-8 col-lg-offset-2 content">
+    <p class="content-text">Witaj na portalu STREFA WOLONTARIATU!</p>
+    <p class="content-text">Jest to strona przeznaczona dla osób pragnących zaangażować się w&nbsp; wolontariat oraz dla tych, którzy poszukują wolontariuszy.</p>
+    <p class="content-text">Jeżeli potrzebujesz rzetelnych i&nbsp; pełnych pasji wolontariuszy to skorzystaj z&nbsp; naszej wyszukiwarki. W&nbsp; celu pełnego korzystania z&nbsp; funkcji serwisu, zarejestruj się. Zakładając konto zyskasz możliwość skontaktowania się z&nbsp; wybranym wolontariuszem. Będziesz mógł także wystawić komentarz osobom, z&nbsp; którymi współpracowałeś.</p>
+    <p class="content-text">Prosimy także o zapoznanie się się z <%= link_to "regulaminem ", rule_index_path %>portalu.</p>
+    <p class="content-text">Dziękujemy, że wybrałeś naszą stronę. Mamy nadzieję, że pomoże Ci ona nawiązać kontakt z osobami, które pomogą w realizacji projektów prowadzonych, przez Twoją organizację.</p>
+
+  </div>

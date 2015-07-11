@@ -8,21 +8,22 @@
 
 /*!Strefa wolontariatu css */
 
+
 .nav-org .active a,
 .nav-org .active a:hover {
-  background-color: #CC0033;
+  background-color: #ca5564;
 }
 
 .nav-ind .active a,
 .nav-ind .active a:hover{
 
-  background-color: #CC3366;
+  background-color: #ff1e3e;
 }
 
 .nav-vol .active a,
 .nav-vol .active a:hover{
 
-  background-color: #66CC99;
+  background-color: #00e1a9;
 }
 
 .nav-all > li {
@@ -47,10 +48,74 @@
   border-bottom: 1px solid #eee;
 }
 
+.back {
+  background-color: #F1F1F1;
+}
+
+.title{
+  color:#8D8D8D;
+}
+
+.menu-text{
+    font-weight: bold;
+
+}
+
+.content{
+    margin-top: 5%;
+
+}
+
+.content-text{
+  font-family: "edelsans_regular";
+  font-size:1.5em;
+  line-height:1.5em;
+  color:#848484;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 15px;
+  background-color: #f8f8f8;
+}
+
+.footer {
+  background-color:#f8f8f8 ;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+  margin-top:60px;
+  bottom: 0px;
+  position: relative;
+}
+
+.accept{
+  font-weight: bold;
+  color: #848484;
+  background-color: #f8f8f8;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.images{
+  padding-right: 15%;
+}
+
+.img .active a,
+.img .active a:hover {
+  background-color: #f8f8f8;
+}
+
 /*! end of Strefa wolontariatu */
 
 html {
-  font-family: sans-serif;
+  font-family: "edelsans_regular";
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -1621,7 +1686,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  background-color: #EFEFEF;
+  background-color: #f8f8f8;
 }
 @media (min-width: 768px) {
   .container {

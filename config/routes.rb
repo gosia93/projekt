@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  get 'about/index'
+
+  get 'rule/index'
+
   resources :roles
   devise_for :users do
     resources :organisations

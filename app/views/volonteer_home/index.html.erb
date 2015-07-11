@@ -1,6 +1,10 @@
 <div class="page-header-my">
-	<h1 class="text-center">Strefa wolontariusza</h1>
+	<h1 class="text-center title">STREFA WOLONTARIUSZA</h1>
 </div>
+<ol class="breadcrumb">
+  <li><%= link_to 'Strona główna', home_index_path %></li>
+  <li class="active">Strefa wolontariusza</li>
+</ol>
 	<nav>
     	<div class="container-fluid">
        		<div class"navbar-header">
@@ -13,20 +17,28 @@
       		 </div>
     	</div>
     	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-       		<ul class="nav nav-justified nav-vol nav-all ">
+       		<ul class="nav nav-justified nav-vol nav-all menu-text">
         		<li class="active">
             		<%= link_to 'Strona główna', home_index_path %>
        			</li>
        			<li class="active">
-       				<%= link_to 'Zarejestruj się', home_index_path %>
+       				<%= link_to 'Zarejestruj się', new_user_registration_path %>
        			</li>
        			<li class="active">
-       				<%= link_to 'Wyszukaj organizację ', home_index_path %>
+       				<%= link_to 'Wyszukaj organizację', home_index_path %>
        			</li>
        			<li class="active">
-       				<%= link_to 'Wyszukaj osobę, która potrzebuje pomocy', home_index_path %>
+       				<%= link_to 'Wyszukaj osobę prywatną', home_index_path %>
        			</li>
       		</ul>
     	</div>
    </nav>
+    <div class="container col-lg-8 col-lg-offset-2 content">
+   <p class="content-text">Witaj na portalu STREFA WOLONTARIATU!</p>
+   <p class="content-text">Jest to strona przeznaczona dla osób pragnących zaangażować się w&nbsp;wolontariat oraz dla tych, którzy poszukują wolontariuszy.</p>
+   <p class="content-text">Jeżeli chciałbyś znaleźć ciekawe projekty wolontariackie lub osoby potrzebujące pomocy, to skorzystaj z&nbsp;naszej wyszukiwarki. W&nbsp;celu pełnego korzystania z&nbsp;funkcji serwisu, zarejestruj się. Zakładając konto zyskasz możliwość skontaktowania się z&nbsp;wybraną organizacją lub osobą. Będziesz mógł także wystawić komentarz tym, z&nbsp;którymi współpracowałeś.</p>
+   <p class="content-text">Prosimy także o zapoznanie się się z&nbsp; <%= link_to "regulaminem ", rule_index_path %>portalu.</p>
+   <p class="content-text">Dziękujemy, że wybrałeś naszą stronę. Mamy nadzieję, że pomoże Ci ona znaleźć odpowiedni dla Ciebie wolontariat i&nbsp;umożliwi Ci rozwijanie Twoich pasji i&nbsp;zainteresowań.</p>
+
+   </div>
 

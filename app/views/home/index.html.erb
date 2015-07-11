@@ -1,8 +1,18 @@
 <div class="page-header-my">
-	<h1 class="text-center">Strefa Wolontariatu</h1>
-</div>		
-	<ul>
-		<li><%= link_to 'Jestem wolontariuszem', volonteer_home_index_path%></li>
-		<li><%= link_to 'Szukam wolontariusza', look_for_volonteer_index_path%></li>
-	</ul>
+	<h1 class="text-center title">STREFA WOLONTARIATU</h1>
+</div>
+<div class="images img">	
+	<div class="row">
+		<div class= "col-lg-4 col-lg-offset-1">
+    		<a><%= link_to look_for_volonteer_index_path do %>
+    		<%= image_tag "szukam_wolotariusza copy.png", size: "550x325", alt: "Szukam wolontariusza"%>
+			<% end %></a>
+		</div>
+		<div class="col-lg-5 col-lg-offset-1">
+			<%= link_to volonteer_home_index_path do %>
+    		<%= image_tag "jestem_wolontariuszem copy.png", size: "550x325", alt: "Jestem wolontariuszem" %>
+			<% end %>
+		</div>
+	</div>
+</div>
 

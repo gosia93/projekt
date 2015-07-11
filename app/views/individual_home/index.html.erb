@@ -1,6 +1,11 @@
 <div class="page-header-my">
-	<h1 class="text-center">Strefa osób prywatnych</h1>
+	<h1 class="text-center title">STREFA OSÓB PRYWATNYCH</h1>
 </div>
+<ol class="breadcrumb">
+  <li><%= link_to 'Strona główna', home_index_path %></li>
+  <li><%= link_to 'Szukam wolontariusza', look_for_volonteer_index_path %></li>
+  <li class="active">Strefa osób prywatnych</li>
+</ol>
 	<nav>
     	<div class="container-fluid">
        		<div class"navbar-header">
@@ -13,12 +18,12 @@
       		 </div>
     	</div>
     	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-       		<ul class="nav nav-justified nav-ind nav-all ">
+       		<ul class="nav nav-justified nav-ind nav-all menu-text">
         		<li class="active">
             		<%= link_to 'Strona główna', home_index_path %>
        			</li>
        			<li class="active">
-       				<%= link_to 'Zarejestruj się', home_index_path %>
+       				<%= link_to "Zarejestruj się", new_user_registration_path %>
        			</li>
        			<li class="active">
        				<%= link_to 'Wyszukaj wolontariusza', home_index_path %>
@@ -26,3 +31,11 @@
       		</ul>
     	</div>
    </nav>
+   <div class="container col-lg-8 col-lg-offset-2 content">
+   <p class="content-text">Witaj na portalu STREFA WOLONTARIATU!</p>
+   <p class="content-text">Jest to strona przeznaczona dla osób pragnących zaangażować się w wolontariat oraz dla tych, którzy poszukują wolontariuszy.</p>
+   <p class="content-text">Jeżeli potrzebujesz pomocy i chciałbyś skontaktować się z osobami, które chętnie Cię wesprą, to skorzystaj z naszej wyszukiwarki wolontariuszy. W celu pełnego korzystania z funkcji serwisu, zarejestruj się. Zakładając konto zyskasz możliwość skontaktowania się z wybranym wolontariuszem. Będziesz mógł także wystawić komentarz osobom, z którymi współpracowałeś.</p>
+   <p class="content-text">Prosimy także o zapoznanie się się z <a href=""><%= link_to "regulaminem ", rule_index_path  %></a>portalu.</p>
+   <p class="content-text">Dziękujemy, że wybrałeś naszą stronę. Mamy nadzieję, że pomoże Ci ona zawrzeć nowe znajomości z ludźmi pełnymi pasji, którzy są otwarci na drugiego człowieka.</p>
+
+   </div>
