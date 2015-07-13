@@ -1,5 +1,17 @@
-<h1>New Volonteer</h1>
+<div class="page-header-my">
+  <h1 class="text-center title">STREFA WOLONTARIUSZA</h1>
+</div>
+<ol class="breadcrumb">
+  <li><%= link_to 'Strona główna', home_index_path %></li>
+  <li><%= link_to 'Strefa wolontariusza', volonteer_home_index_path %></li>
+  <li class="active">Zarejestruj się</li>
+</ol>
+<div>
+<%= link_to 'Powrót', volonteers_path %>
+</div>
+
+
 
 <%= render 'form' %>
 
-<%= link_to 'Back', volonteers_path %>
+

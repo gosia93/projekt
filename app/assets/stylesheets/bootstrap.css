@@ -54,6 +54,7 @@
 
 .title{
   color:#8D8D8D;
+  font-family: "edelsans_regular";
 }
 
 .menu-text{
@@ -97,7 +98,7 @@
 
 .accept{
   font-weight: bold;
-  color: #848484;
+  color: #565656;
   background-color: #f8f8f8;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -112,6 +113,19 @@
   background-color: #f8f8f8;
 }
 
+.but{
+  margin-top:15px;
+  margin-bottom: 15px;
+}
+
+.form{
+  margin-top:70px;
+  margin-bottom: 50px;
+  color: #848484;
+  font-family: "edelsans_regular";
+  font-size:1.5em;
+
+}
 /*! end of Strefa wolontariatu */
 
 html {

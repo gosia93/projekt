@@ -6,17 +6,19 @@ Rails.application.routes.draw do
   get 'rule/index'
 
   resources :roles
-  devise_for :users do
-    resources :organisations
-    resources :individuals
-    resources :volonteers
-  end
+  devise_for :users 
+  resources :organisations
+  resources :individuals
+  resources :volonteers
+ 
  
 
 
   resources :users
   resources :photos
   resources :volontary_types
+
+
 
    get 'home/index'
 
