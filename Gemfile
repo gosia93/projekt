@@ -46,6 +46,7 @@ group :development, :test do
   gem 'bootstrap-sass', '~> 3.2.0.2'
   gem 'autoprefixer-rails'
   gem "paperclip", "~> 4.2"
+  gem 'paperclip-ffmpeg', '~> 1.0.0'
   gem 'devise-i18n'
 end
 

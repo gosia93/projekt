@@ -1,39 +1,83 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Volonteers</h1>
+<div class="page-header-my">
+  <h1 class="text-center title">STREFA ORGANIZACJI</h1>
+</div>
+<ol class="breadcrumb">
+  <li><%= link_to 'Strona główna', home_index_path %></li>
+  <li><%= link_to 'Szukam wolontariusza', look_for_volonteer_index_path %></li>
+  <li class="active">Strefa organizacji</li>
+</ol>
+  <nav>
+      <div class="container-fluid">
+          <div class"navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           </div>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav nav-justified nav-org nav-all menu-text ">
+            <li class="active">
+                <%= link_to 'Strona główna', home_index_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Zarejestruj organizację', new_user_registration_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Wyszukaj wolontariusza', home_index_path %>
+            </li>
+          </ul>
+      </div>
+   </nav>
+<div class="tab">
+   <nav>
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 
-<table>
+<table class="table table-bordered table-hover table-condensed table-responsive">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Age</th>
-      <th>City</th>
-      <th>About</th>
-      <th>User</th>
-      <th>Volontary type</th>
+    <tr class="th">
+      <th>Imię</th>
+      <th>Nazwisko</th>
+      <th>Wiek</th>
+      <th>Miasto</th>
+      <th>Rodzaj wolontariatu</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="form">
     <% @volonteers.each do |volonteer| %>
       <tr>
         <td><%= volonteer.name %></td>
         <td><%= volonteer.surname %></td>
         <td><%= volonteer.age %></td>
         <td><%= volonteer.city %></td>
-        <td><%= volonteer.about %></td>
-        <td><%= volonteer.user_id %></td>
-        <td><%= volonteer.volontary_type_id %></td>
-        <td><%= link_to 'Show', volonteer %></td>
-        <td><%= link_to 'Edit', edit_volonteer_path(volonteer) %></td>
-        <td><%= link_to 'Destroy', volonteer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= volonteer.volontary_type.name %></td>
+       <td><%= link_to 'Zobacz', volonteer %></td>   
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
-<%= link_to 'New Volonteer', new_volonteer_path %>
+

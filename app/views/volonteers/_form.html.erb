@@ -11,8 +11,9 @@
       </ul>
     </div>
   <% end %>
-  <div class="field but">
-    <%= f.file_field :photo, class: "form-control input-lg" %>
+  <div class="col-lg-6 col-lg-offset-3">
+  <div class="field but title accept">
+    <%= f.file_field :photo %>
   </div>
   <div class="field but">
     <label class="title">Imię</label><br>
@@ -43,4 +44,5 @@
     <%= f.submit "Potwierdź" %>
   </div>
 <% end %>
+</div>
 

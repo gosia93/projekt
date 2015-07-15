@@ -71,7 +71,7 @@
   font-family: "edelsans_regular";
   font-size:1.5em;
   line-height:1.5em;
-  color:#848484;
+  color:#6D6D6D;
 }
 
 .container {
@@ -121,11 +121,39 @@
 .form{
   margin-top:70px;
   margin-bottom: 50px;
-  color: #848484;
+  color: #6D6D6D;
   font-family: "edelsans_regular";
   font-size:1.5em;
 
 }
+.tab{
+  margin-top:70px;
+  margin-bottom: 50px;
+}
+
+.th{
+  background-color: #A4A4A4;
+  color:#FFFFFF;
+}
+
+.responsive-video {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 60px; overflow: hidden;
+}
+
+
+.responsive-video iframe,
+.responsive-video object,
+.responsive-video embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
+
 /*! end of Strefa wolontariatu */
 
 html {
