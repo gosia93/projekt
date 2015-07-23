@@ -1,23 +1,19 @@
 Rails.application.routes.draw do
   
 
-  get 'registrations/register_voolonteer'
-
-  get 'registrations/register_organisation'
-
-  get 'registrations/register_individual'
-
-  devise_for :users, :controllers => {:registrations => 'registrations'}
-
-
   get 'about/index'
 
   get 'rule/index'
 
   resources :roles
+  devise_for :users 
   resources :organisations
   resources :individuals
   resources :volonteers
+ 
+ 
+
+
   resources :users
   resources :photos
   resources :volontary_types

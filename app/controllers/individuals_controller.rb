@@ -15,6 +15,7 @@ class IndividualsController < ApplicationController
   # GET /individuals/new
   def new
     @individual = Individual.new
+    @individual.user_id = current_user.id
   end
 
   # GET /individuals/1/edit
@@ -25,6 +26,7 @@ class IndividualsController < ApplicationController
   # POST /individuals.json
   def create
     @individual = Individual.new(individual_params)
+    @individual.user_id = current_user.id
 
     respond_to do |format|
       if @individual.save

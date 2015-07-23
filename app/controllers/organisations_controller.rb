@@ -15,6 +15,7 @@ class OrganisationsController < ApplicationController
   # GET /organisations/new
   def new
     @organisation = Organisation.new
+    @organisation.user_id = current_user.id
   end
 
   # GET /organisations/1/edit
@@ -25,11 +26,11 @@ class OrganisationsController < ApplicationController
   # POST /organisations.json
   def create
     @organisation = Organisation.new(organisation_params)
-
+    @organisation.user_id = current_user.id
     respond_to do |format|
       if @organisation.save
         format.html { redirect_to @organisation, notice: 'Organisation was successfully created.' }
-        format.json { render :show, status: :created, location: @organisation }
+        format.json { render :show, location: @user}
       else
         format.html { render :new }
         format.json { render json: @organisation.errors, status: :unprocessable_entity }

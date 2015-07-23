@@ -11,16 +11,16 @@
   		<div class="container-fluid">
   			<ul class="nav navbar-nav navbar-right ">
   				<li><%= link_to "Regulamin", rule_index_path %></li>
-				<% if user_signed_in? %>
-  					Zalogowany jako <%= current_user.email %>. 
- 					<li> <%= link_to "Twój profil", edit_user_registration_path %></li>
- 					<li> <%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %></li>
-				<% else %>
-  					<li><%= link_to "Logowanie", new_user_session_path %></li>
-			<% end %>
+          <% if user_signed_in? %>
+          <li> <%= link_to "Twój profil", edit_user_registration_path %></li>
+          <li> <%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+            <li><%= link_to "Logowanie", new_user_session_path %></li>
+      <% end %>
 			</ul>
 		</div>
 	</nav>
+  
  
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, id: "flash_#{name}" %>

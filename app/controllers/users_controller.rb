@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -10,6 +11,13 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    if @user.is_volonteer? 
+      render "users/show_volonteers" 
+    elsif @user.is_organisation? 
+      render "users/show_organisations"
+    elsif @user.is_individual?
+      render "individuals/show"
+    end   
   end
 
   # GET /users/new
@@ -67,8 +75,10 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+  
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:login, :role_id)
-    end
+  params.require(:user).permit(:email, :password, :password_confirmation, :name, :role_id)
+end
 end

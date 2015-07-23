@@ -10,36 +10,33 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <div class="col-lg-6 col-lg-offset-3">
+  <div class="field but">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control input-lg" %>
   </div>
-  <div class="field">
+  <div class="field but">
     <%= f.label :surname %><br>
-    <%= f.text_field :surname %>
+    <%= f.text_field :surname, class: "form-control input-lg" %>
   </div>
-  <div class="field">
+  <div class="field but">
     <%= f.label :age %><br>
-    <%= f.number_field :age %>
+    <%= f.number_field :age, class: "form-control input-lg" %>
   </div>
-  <div class="field">
+  <div class="field but">
     <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, class: "form-control input-lg" %>
   </div>
-  <div class="field">
+  <div class="field but">
     <%= f.label :about %><br>
-    <%= f.text_area :about %>
+    <%= f.text_area :about, class: "form-control input-lg" %>
   </div>
-  <div class="field">
+  <div class="field but">
     <%= f.label :needs %><br>
-    <%= f.text_area :needs %>
+    <%= f.text_area :needs, class: "form-control input-lg" %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="actions">
+  <div class="field but">
     <%= f.submit %>
   </div>
 <% end %>
+</div>

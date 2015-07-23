@@ -15,6 +15,7 @@ class VolonteersController < ApplicationController
   # GET /volonteers/new
   def new
     @volonteer = Volonteer.new
+    @volonteer.user_id = current_user.id
   end
 
   # GET /volonteers/1/edit
@@ -25,7 +26,7 @@ class VolonteersController < ApplicationController
   # POST /volonteers.json
   def create
     @volonteer = Volonteer.new(volonteer_params)
-
+     @volonteer.user_id = current_user.id
     respond_to do |format|
       if @volonteer.save
         format.html { redirect_to @volonteer, notice: 'Volonteer was successfully created.' }

@@ -1,11 +1,10 @@
 <p id="notice"><%= notice %></p>
 <div class="page-header-my">
-  <h1 class="text-center title">STREFA ORGANIZACJI</h1>
+  <h1 class="text-center title">STREFA WOLONTARIUSZA</h1>
 </div>
 <ol class="breadcrumb">
   <li><%= link_to 'Strona główna', home_index_path %></li>
-  <li><%= link_to 'Szukam wolontariusza', look_for_volonteer_index_path %></li>
-  <li class="active">Strefa organizacji</li>
+  <li class="active">Strefa wolontariusza</li>
 </ol>
   <nav>
       <div class="container-fluid">
@@ -19,15 +18,18 @@
            </div>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav nav-justified nav-org nav-all menu-text ">
+          <ul class="nav nav-justified nav-vol nav-all menu-text">
             <li class="active">
                 <%= link_to 'Strona główna', home_index_path %>
             </li>
             <li class="active">
-              <%= link_to 'Zarejestruj organizację', new_user_registration_path %>
+              <%= link_to 'Zarejestruj się', new_user_registration_path %>
             </li>
             <li class="active">
-              <%= link_to 'Wyszukaj wolontariusza', home_index_path %>
+              <%= link_to 'Wyszukaj organizację', home_index_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Wyszukaj osobę prywatną', home_index_path %>
             </li>
           </ul>
       </div>
@@ -35,49 +37,41 @@
 <div class="form title">
 <div class="row">
 <div class="col-lg-2 col-lg-offset-2">
-<p>
-<%= image_tag @volonteer.photo.url, size: "130x200", alt: "Zdjęcie wolontariusza"%>
+<p class="col-lg-offset-1">
+<%= image_tag @user.organisation.logo.url, size: "200x200", alt: "Logo organizacji"%>
 </p>
 </div>
-<div class="col-lg-6">
-
-  <strong>Imię:</strong>
-  <%= @volonteer.name %>
-</p>
-
+<div class="col-lg-6 col-lg-offset-1">
 <p>
-  <strong>Nazwisko:</strong>
-  <%= @volonteer.surname %>
-</p>
-
-<p>
-  <strong>Wiek:</strong>
-  <%= @volonteer.age %>
+  <strong>Nazwa:</strong>
+  <%= @user.organisation.name %>
 </p>
 
 <p>
   <strong>Miasto:</strong>
-  <%= @volonteer.city %>
+  <%= @user.organisation.city %>
 </p>
+
 <p>
-  <strong>Rodzaj wolontariatu:</strong>
-  <%= @volonteer.volontary_type%>
+  <strong>REGON:</strong>
+  <%= @user.organisation.regon %>
 </p>
 </div>
 </div>
 <div class="col-lg-8 col-lg-offset-2 row but">
 <p>
   <strong>Opis:</strong>
-  <%= @volonteer.about %>
+  <%= @user.organisation.about %>
 </p>
-<p>
-  <strong>Id:</strong>
-  <%= @volonteer.user_id %>
+<div>
+<p class="col-lg-offset-1">
+<%= video_tag @user.organisation.video.url, size: "600x480", :controls => true%>
 </p>
 </div>
 </div>
 
 
 <div class="col-lg-12">
-<button type="button" class="accept col-lg-4 col-lg-offset-4"><%= link_to 'Skontaktuj się z wolontariuszem', home_index_path %></button>
+<button type="button" class="accept col-lg-4 col-lg-offset-4"><%= link_to 'Skontaktuj się z organizacją', home_index_path %></button>
+</div>
 </div>
