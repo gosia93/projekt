@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  resources :search_organisations
+  resources :search_volonteers
   get 'registrations/register_voolonteer'
 
   get 'registrations/register_organisation'
@@ -16,8 +18,18 @@ Rails.application.routes.draw do
 
   resources :roles
   resources :organisations
-  resources :individuals
-  resources :volonteers
+  resources :individuals do
+     collection do 
+      get :search
+      get :auto_complete_search
+    end
+  end
+  resources :volonteers do 
+    collection do 
+      get :search_by_individual
+      get :auto_complete_search
+    end
+  end
   resources :users
   resources :photos
   resources :volontary_types

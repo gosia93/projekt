@@ -11,7 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
     		"/volonteers/new"
     	elsif @user.role_id == 2
     		"/organisations/new"
-    	elsif @user.role_id == 6
+    	elsif @user.role_id == 3
     		"/individuals/new"
     	end
 	end

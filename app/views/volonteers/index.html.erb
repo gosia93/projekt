@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<% if current_user.is_organisation? %>
 <div class="page-header-my">
   <h1 class="text-center title">STREFA ORGANIZACJI</h1>
 </div>
@@ -28,11 +28,47 @@
               <%= link_to 'Zarejestruj organizację', new_user_registration_path %>
             </li>
             <li class="active">
-              <%= link_to 'Wyszukaj wolontariusza', home_index_path %>
+              <%= link_to 'Wyszukaj wolontariusza', new_search_volonteer_path %>
             </li>
           </ul>
       </div>
    </nav>
+   </nav>
+   <% elsif current_user.role_id = 3 %>
+    <div class="page-header-my">
+  <h1 class="text-center title">STREFA OSÓB PRYWATNYCH</h1>
+</div>
+<ol class="breadcrumb">
+  <li><%= link_to 'Strona główna', home_index_path %></li>
+  <li><%= link_to 'Szukam wolontariusza', look_for_volonteer_index_path %></li>
+  <li class="active">Strefa osób prywatnych</li>
+</ol>
+  <nav>
+      <div class="container-fluid">
+          <div class"navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           </div>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav nav-justified nav-ind nav-all menu-text">
+            <li class="active">
+                <%= link_to 'Strona główna', home_index_path %>
+            </li>
+            <li class="active">
+              <%= link_to "Zarejestruj się", new_user_registration_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Wyszukaj wolontariusza', search_by_individual_volonteers_path %>
+            </li>
+          </ul>
+      </div>
+   </nav>
+  <% end %>
 <div class="tab">
    <nav>
   <ul class="pagination">
@@ -70,7 +106,7 @@
         <td><%= volonteer.surname %></td>
         <td><%= volonteer.age %></td>
         <td><%= volonteer.city %></td>
-        <td><%= volonteer.volontary_type %></td>
+        <td><%= volonteer.volontary_type.name %></td>
        <td><%= link_to 'Zobacz', volonteer %></td>   
       </tr>
     <% end %>

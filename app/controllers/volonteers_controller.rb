@@ -4,7 +4,10 @@ class VolonteersController < ApplicationController
   # GET /volonteers
   # GET /volonteers.json
   def index
-    @volonteers = Volonteer.all
+     @volonteers = Volonteer.search_for(params[:search], :order => params[:order]).all
+  rescue => e
+    flash[:error] = e.to_s
+    @volonteers= Volonteer.search_for ''
   end
 
   # GET /volonteers/1
@@ -72,4 +75,13 @@ class VolonteersController < ApplicationController
     def volonteer_params
       params.require(:volonteer).permit(:name, :surname, :age, :city, :about, :user_id, :volontary_type_id, :photo)
     end
+
+    def auto_complete_search
+    begin
+      @items = Volonteer.complete_for(params[:search])
+    rescue ScopedSearch::QueryNotSupported => e
+      @items = [{:error =>e.to_s}]
+    end
+    render :json => @items
+  end
 end

@@ -48,5 +48,6 @@ group :development, :test do
   gem "paperclip", "~> 4.2"
   gem 'paperclip-ffmpeg', '~> 1.0.0'
   gem 'devise-i18n'
+  gem "scoped_search"
 end
 

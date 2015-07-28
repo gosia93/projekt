@@ -5,4 +5,6 @@ class Volonteer < ActiveRecord::Base
 
 	belongs_to :user
 	belongs_to :volontary_type
+
+	scoped_search :on => :city, :complete_value => :true, :default_order => true
 end
