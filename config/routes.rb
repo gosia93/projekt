@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  
   resources :search_organisations
   resources :search_volonteers
   get 'registrations/register_voolonteer'
@@ -17,11 +18,22 @@ Rails.application.routes.draw do
   get 'rule/index'
 
   resources :roles
-  resources :organisations
+  resources :organisations do 
+    resources :comments, module: :organisations do
+      collection do
+        put :approve
+      end
+    end
+  end
   resources :individuals do
      collection do 
       get :search
       get :auto_complete_search
+    end
+    resources :comments, module: :individuals do
+      collection do
+        put :approve
+      end
     end
   end
   resources :volonteers do 
@@ -29,14 +41,20 @@ Rails.application.routes.draw do
       get :search_by_individual
       get :auto_complete_search
     end
+    resources :comments, module: :volonteers do
+      collection do
+        put :approve
+      end
+    end
   end
   resources :users
   resources :photos
   resources :volontary_types
+  resources :comments
 
+  get 'comments/index'
 
-
-   get 'home/index'
+  get 'home/index'
 
   get 'volonteer_home/index' 
 

@@ -33,51 +33,46 @@
       </div>
    </nav>
 <div class="form title">
-<div class="row">
-<div class="col-lg-2 col-lg-offset-2">
-<p>
-<%= image_tag @volonteer.photo.url, size: "130x200", alt: "Zdjęcie wolontariusza"%>
-</p>
-</div>
-<div class="col-lg-6">
-
-  <strong>Imię:</strong>
-  <%= @volonteer.name %>
-</p>
-
-<p>
-  <strong>Nazwisko:</strong>
-  <%= @volonteer.surname %>
-</p>
-
-<p>
-  <strong>Wiek:</strong>
-  <%= @volonteer.age %>
-</p>
-
-<p>
-  <strong>Miasto:</strong>
-  <%= @volonteer.city %>
-</p>
-<p>
-  <strong>Rodzaj wolontariatu:</strong>
-  <%= @volonteer.volontary_type.name%>
-</p>
-</div>
-</div>
-<div class="col-lg-8 col-lg-offset-2 row but">
-<p>
-  <strong>Opis:</strong>
-  <%= @volonteer.about %>
-</p>
-<p>
-  <strong>Id:</strong>
-  <%= @volonteer.user_id %>
-</p>
-</div>
-</div>
-
-
-<div class="col-lg-12">
-<button type="button" class="accept col-lg-4 col-lg-offset-4"><%= link_to 'Skontaktuj się z wolontariuszem', home_index_path %></button>
+  <div class="row">
+    <div class="col-lg-2 col-lg-offset-2">
+      <p>
+        <%= image_tag @volonteer.photo.url, size: "130x200", alt: "Zdjęcie wolontariusza"%>
+      </p>
+    </div>
+    <div class="col-lg-6">
+      <p>
+        <strong>Imię:</strong>
+        <%= @volonteer.name %>
+      </p>
+      <p>
+        <strong>Nazwisko:</strong>
+        <%= @volonteer.surname %>
+      </p>
+      <p>
+        <strong>Wiek:</strong>
+        <%= @volonteer.age %>
+      </p>
+      <p>
+        <strong>Miasto:</strong>
+        <%= @volonteer.city %>
+      </p>
+      <p>
+        <strong>Rodzaj wolontariatu:</strong>
+        <%= @volonteer.volontary_type.name%>
+      </p>
+    </div>
+  </div>
+  <div class="col-lg-8 col-lg-offset-2 row but">
+    <p>
+      <strong>Opis:</strong>
+      <%= @volonteer.about %>
+    </p>
+    <p>
+      <%= render partial: "comments/comments", locals: {commentable: @volonteer} %>
+      <%= render partial: "comments/form", locals: {commentable: @volonteer} %>
+    </p>
+  </div>
+  <div class="col-lg-12">
+    <button type="button" class="accept col-lg-4 col-lg-offset-4"><%= link_to 'Skontaktuj się z wolontariuszem', home_index_path %></button>
+  </div>
 </div>
