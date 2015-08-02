@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Search Organisations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>City</th>
+      <th>Volontary type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @search_organisations.each do |search_organisation| %>
+      <tr>
+        <td><%= search_organisation.city %></td>
+        <td><%= search_organisation.volontary_type_id %></td>
+        <td><%= link_to 'Show', search_organisation %></td>
+        <td><%= link_to 'Edit', edit_search_organisation_path(search_organisation) %></td>
+        <td><%= link_to 'Destroy', search_organisation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Search organisation', new_search_organisation_path %>

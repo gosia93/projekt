@@ -1,0 +1,25 @@
+<%= form_for(@search_organisation) do |f| %>
+  <% if @search_organisation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@search_organisation.errors.count, "error") %> prohibited this search_organisation from being saved:</h2>
+
+      <ul>
+      <% @search_organisation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :volontary_type_id %><br>
+    <%= f.number_field :volontary_type_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
