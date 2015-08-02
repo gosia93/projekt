@@ -1,0 +1,13 @@
+<div class="col-lg-offset-1 tab">
+	<h3>Komentarze</h3><hr>
+	<% commentable.comments.approved.each do |comment| %>
+  		<div class="tab">
+  			<div>
+    			<%= comment.content %>
+  			</div>
+  			<div>
+  				<small><%= comment.user_id%></small><hr>
+  			</div>
+  		</div>
+	<% end %>
+</div>
