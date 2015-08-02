@@ -64,13 +64,19 @@
   <%= @organisation.about %>
 </p>
 <div>
+<% if @organisation.video.present? %>
 <p class="col-lg-offset-1">
 <%= video_tag @organisation.video.url, size: "600x480", :controls => true%>
 </p>
+<% end %>
+</div>
+<p class="col-lg-offset-1">
+<%= render partial: "comments/comments", locals: {commentable: @organisation} %>
+<%= render partial: "comments/form", locals: {commentable: @organisation} %>
+</p>
 </div>
 </div>
-
-
+<div>
 <div class="col-lg-12">
 <button type="button" class="accept col-lg-4 col-lg-offset-4"><%= link_to 'Skontaktuj się z organizacją', home_index_path %></button>
 </div>

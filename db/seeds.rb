@@ -8,4 +8,6 @@
 r1 = Role.create({name: "Wolontariusz"})
 r2 = Role.create({name: "Organjzacja"})
 r3 = Role.create({name: "Osoba prywatna"})
-r4 = Role.create({name: "Osoba prywatna"})
+
+
+admin = User.create({login: "admin", role_id: "4", email:"strefa_wolontariatu@poczta.fm", password:"strefa123"})

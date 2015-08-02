@@ -5,6 +5,7 @@ class Volonteer < ActiveRecord::Base
 
 	belongs_to :user
 	belongs_to :volontary_type
+	has_many :comments, :as => :commentable
 
 	scoped_search :on => :city, :complete_value => :true, :default_order => true
 end

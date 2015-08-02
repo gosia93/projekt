@@ -9,4 +9,5 @@ class Organisation < ActiveRecord::Base
 
     belongs_to :volontary_type
     belongs_to :user
+    has_many :comments, :as => :commentable
 end
