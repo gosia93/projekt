@@ -1,4 +1,3 @@
-
 <p id="notice"><%= notice %></p>
   <div class="page-header-my">
   <h1 class="text-center title">STREFA WOLONTARIATU</h1>
@@ -33,8 +32,22 @@
           </ul>
       </div>
    </nav>
-<div class="tab">
-	<%= render 'form' %>
+    <div class="col-lg-6 col-lg-offset-4 form title tab">
+		<p>
+		  <strong>ID:</strong>
+		  <%= @user.id %>
+		 </p>
+		 <p>
+		   <strong>Login:</strong>
+		  <%= @user.login %>
+		</p>
+     <p>
+       <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
+
+
+
+<%= link_to 'Edytuj', edit_user_path(@user) %> |
+<%= link_to 'Wróć', users_path %>
 </div>
-
-

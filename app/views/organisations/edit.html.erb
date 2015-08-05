@@ -1,9 +1,9 @@
 <div class="page-header-my">
-  <h1 class="text-center title">STREFA WOLONTARIUSZA</h1>
+  <h1 class="text-center title">STREFA ORGANIZACJI</h1>
 </div>
 <ol class="breadcrumb">
   <li><%= link_to 'Strona główna', home_index_path %></li>
-  <li class="active">Strefa wolontariusza</li>
+  <li class="active">Twój profil</li>
 </ol>
   <nav>
       <div class="container-fluid">
@@ -17,23 +17,23 @@
            </div>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav nav-justified nav-vol nav-all menu-text">
+          <ul class="nav nav-justified nav-org nav-all menu-text ">
             <li class="active">
                 <%= link_to 'Strona główna', home_index_path %>
             </li>
             <li class="active">
-              <%= link_to 'Zarejestruj się', new_user_registration_path %>
+              <%= link_to 'Zarejestruj organizację', new_user_registration_path %>
             </li>
             <li class="active">
-              <%= link_to 'Wyszukaj organizację', home_index_path %>
-            </li>
-            <li class="active">
-              <%= link_to 'Wyszukaj osobę prywatną', home_index_path %>
+              <%= link_to 'Wyszukaj wolontariusza', new_search_volonteer_path %>
             </li>
           </ul>
       </div>
    </nav>
 <div class="tab">
-<%= render 'form' %>
+  <%= render 'form' %>
+  <div class="col-lg-6 col-lg-offset-3 tab">
+    <%= link_to 'Edytuj dane logowania',  edit_user_registration_path(current_user) %>
+  </div>
 </div>
 

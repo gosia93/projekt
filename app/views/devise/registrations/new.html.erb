@@ -1,37 +1,43 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-  <div class="field">
-  <%= f.label :login %><br />
-  <%= f.text_field :login %>
+<div class="page-header-my">
+  <h1 class="text-center title">STREFA WOLONTARIATU</h1>
 </div>
- <div class="field">
-    <%= collection_select(:user, :role_id, Role.all, :id, :name, {prompt: true}) %>
+<ol class="breadcrumb">
+  <li><%= link_to 'Strona główna', home_index_path %></li>
+  <li class="active">Rejestracja</li>
+</ol>
+<div class="col-lg-6 col-lg-offset-3">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="field but">
+    <label class="title">Email</label><br>
+    <%= f.email_field :email, autofocus: true, class: "form-control input-lg" %>
+  </div>
+  <div class="field but">
+   <label class="title">Login</label><br>
+  <%= f.text_field :login, class: "form-control input-lg" %>
+</div>
+ <div class="field but">
+  <label class="title">Wybierz typ użytkownika</label><br>
+    <%= collection_select(:user, :role_id, Role.all, :id, :name, {prompt: true}, class: "form-control input-lg" )%>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <div class="field but">
+     <label class="title">Hasło</label><br>
     <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(przynajmniej <%= @minimum_password_length %> znaków)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="field but">
+     <label class="title">Powtórz hasło</label><br>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-lg" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Zarejestruj" %>
+ <div class="actions but title accept">
+    <%= f.submit "Zarejestruj",class: "btn btn-default col-lg-2 col-lg-offset-10" %>
   </div>
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
 

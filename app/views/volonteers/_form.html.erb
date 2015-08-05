@@ -40,8 +40,8 @@
    <%= collection_select(:volonteer, :volontary_type_id, VolontaryType.all, :id, :name, {prompt: true}, class: "form-control input-lg title" ) %>
   </div>
 
-  <div class="actions but title accept">
-    <%= f.submit "Potwierdź" %>
+  <div>
+    <%= f.submit "Potwierdź", class: "btn btn-default col-lg-2 col-lg-offset-10" %>
   </div>
 <% end %>
 </div>

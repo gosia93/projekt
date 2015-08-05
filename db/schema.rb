@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150730181110) do
+ActiveRecord::Schema.define(version: 20150804194624) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -31,8 +31,12 @@ ActiveRecord::Schema.define(version: 20150730181110) do
     t.text     "about"
     t.text     "needs"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "organisations", force: :cascade do |t|
@@ -64,6 +68,20 @@ ActiveRecord::Schema.define(version: 20150730181110) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "search_organisations", force: :cascade do |t|
+    t.string   "city"
+    t.integer  "volontary_type_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "search_volonteers", force: :cascade do |t|
+    t.string   "city"
+    t.integer  "volontary_type_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|

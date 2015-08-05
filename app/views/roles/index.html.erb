@@ -1,27 +1,58 @@
+<p id="notice"><%= notice %></p>
+  <div class="page-header-my">
+  <h1 class="text-center title">STREFA WOLONTARIATU</h1>
+</div>
+  <div class="container-fluid">
+          <div class"navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           </div>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav nav-justified nav-adm nav-all menu-text">
+            <li class="active">
+                <%= link_to 'Strona główna', home_index_path %>
+            </li>
+            <li class="active">
+              <%= link_to "Wolontariaty", volontary_types_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Użytkownicy', users_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Role użytkowników', roles_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Moderacja', comments_path %>
+            </li>
+          </ul>
+      </div>
+   </nav>
+  <div class="tab">
+    <table class="table table-bordered table-hover table-condensed table-responsive">
+      <thead>
+        <tr class="th">
+          <th>Name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
+      <tbody class="form">
+        <% @roles.each do |role| %>
+          <tr>
+            <td><%= role.name %></td>
+            <td><%= link_to 'Edytuj', edit_role_path(role) %></td>
+            <td><%= link_to 'Usuń', role, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<h1>Listing Roles</h1>
+    <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @roles.each do |role| %>
-      <tr>
-        <td><%= role.name %></td>
-        <td><%= link_to 'Show', role %></td>
-        <td><%= link_to 'Edit', edit_role_path(role) %></td>
-        <td><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Role', new_role_path %>
+    <%= link_to 'Dodaj nową', new_role_path %>
+    </div>

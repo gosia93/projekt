@@ -1,4 +1,4 @@
-<%= form_for(@individual) do |f| %>
+<%= form_for @individual, html: {multipart: true} do |f| %>
   <% if @individual.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@individual.errors.count, "error") %> prohibited this individual from being saved:</h2>
@@ -11,32 +11,35 @@
     </div>
   <% end %>
   <div class="col-lg-6 col-lg-offset-3">
+  <div class="field but title accept">
+    <%= f.file_field :photo %>
+  </div>
   <div class="field but">
-    <%= f.label :name %><br>
+    <label class="title">Imię</label><br>
     <%= f.text_field :name, class: "form-control input-lg" %>
   </div>
   <div class="field but">
-    <%= f.label :surname %><br>
+    <label class="title">Nazwisko</label><br>
     <%= f.text_field :surname, class: "form-control input-lg" %>
   </div>
   <div class="field but">
-    <%= f.label :age %><br>
+    <label class="title">Wiek</label><br>
     <%= f.number_field :age, class: "form-control input-lg" %>
   </div>
   <div class="field but">
-    <%= f.label :city %><br>
+    <label class="title">Miasto</label><br>
     <%= f.text_field :city, class: "form-control input-lg" %>
   </div>
   <div class="field but">
-    <%= f.label :about %><br>
+    <label class="title">O mnie</label><br>
     <%= f.text_area :about, class: "form-control input-lg" %>
   </div>
   <div class="field but">
-    <%= f.label :needs %><br>
+    <label class="title">Moje potrzeby</label><br>
     <%= f.text_area :needs, class: "form-control input-lg" %>
   </div>
-  <div class="field but">
-    <%= f.submit %>
+  <div>
+    <%= f.submit "Potwierdź", class: "btn btn-default col-lg-2 col-lg-offset-10" %>
   </div>
 <% end %>
 </div>

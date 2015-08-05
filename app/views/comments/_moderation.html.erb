@@ -10,16 +10,17 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+<div class="col-lg-6 col-lg-offset-3">
+  <div class="field but">
+     <label class="title">Treść</label><br>
+    <%= f.text_area :content, class: "form-control input-lg"  %>
   </div>
   <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
+     <label class="title">Status</label><br>
+    <%= f.text_field :status, class: "form-control input-lg"  %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div id= 'submit_search'>
+    <%= f.submit "Potwierdź", class: "btn btn-default col-lg-2 col-lg-offset-10"  %>
   </div>
 <% end %>
+</div>

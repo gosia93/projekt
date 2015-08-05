@@ -19,7 +19,11 @@ class User < ActiveRecord::Base
     self.role_id == 2
   end
 
-   def is_individual?
-    self.role_id == 6
+  def is_individual?
+    self.role_id == 3
+  end
+
+  def admin? 
+    self.role_id == 4
   end
 end

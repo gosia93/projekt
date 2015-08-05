@@ -4,7 +4,8 @@
 <ol class="breadcrumb">
   <li><%= link_to 'Strona główna', home_index_path %></li>
   <li><%= link_to 'Szukam wolontariusza', look_for_volonteer_index_path %></li>
-  <li class="active">Strefa osób prywatnych</li>
+   <li><%= link_to 'Strefa osób prywatnych', individual_home_index_path %></li>
+  <li class="active">Wyszukaj wolontariusza</li>
 </ol>
 	<nav>
     	<div class="container-fluid">
@@ -37,7 +38,7 @@
 			<%= form_tag volonteers_path, :method => :get do %>
 				<label class="title">Podaj miasto:</label><br>
 				 <%= text_field_tag :search, params[:search], class: "form-control input-lg" %>
-    			   <button id='submit_search' class="actions but title accept col-lg-2 col-lg-offset-10">Szukaj</button>
+    			   <button id='submit_search' class= "btn btn-default col-lg-2 col-lg-offset-10">Szukaj</button>
   			<% end %>
 		</div>
 	</div>

@@ -1,10 +1,40 @@
-
-
-<h1>Listing Users</h1>
-
-<table>
+  <div class="page-header-my">
+  <h1 class="text-center title">STREFA WOLONTARIATU</h1>
+</div>
+  <div class="container-fluid">
+          <div class"navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           </div>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav nav-justified nav-adm nav-all menu-text">
+            <li class="active">
+                <%= link_to 'Strona główna', home_index_path %>
+            </li>
+            <li class="active">
+              <%= link_to "Wolontariaty", volontary_types_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Użytkownicy', users_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Role użytkowników', roles_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Moderacja', comments_path %>
+            </li>
+          </ul>
+      </div>
+   </nav>
+   <div class="tab">
+<table class="table table-bordered table-hover table-condensed table-responsive">
   <thead>
-    <tr>
+    <tr class="th">
       <th>Email</th>
       <th>Login</th>
       <th>Role</th>
@@ -12,20 +42,18 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="form">
     <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
         <td><%= user.login %></td>
         <td><%= user.role_id%></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Zobacz', user %></td>
+        <td><%= link_to 'Usuń', user, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New User', new_user_path %>
+</div>

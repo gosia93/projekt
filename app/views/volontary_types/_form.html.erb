@@ -10,12 +10,13 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="field but">
+       <label class="title">Nazwa</label><br>
+      <%= f.text_field :name, class: "form-control input-lg" %>
+    </div>
+    <div>
+      <%= f.submit "Potwierdź", class: "btn btn-default col-lg-2 col-lg-offset-10" %>
+    </div>
   </div>
 <% end %>

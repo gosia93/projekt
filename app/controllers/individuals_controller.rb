@@ -74,7 +74,7 @@ class IndividualsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def individual_params
-      params.require(:individual).permit(:name, :surname, :age, :city, :about, :needs, :user_id)
+      params.require(:individual).permit(:name, :surname, :age, :city, :about, :needs, :user_id, :photo)
     end
 
     def auto_complete_search

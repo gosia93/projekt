@@ -3,7 +3,8 @@
 </div>
 <ol class="breadcrumb">
   <li><%= link_to 'Strona główna', home_index_path %></li>
-  <li class="active">Strefa wolontariusza</li>
+   <li><%= link_to 'Strefa wolontariusza', volonteer_home_index_path %></li>
+  <li class="active">Wyszukaj organizację</li>
 </ol>
   <nav>
       <div class="container-fluid">
@@ -45,7 +46,7 @@
    	<label class="title">Wybierz rodzaj wolontariatu:</label><br>
   		<%= s.collection_select(:volontary_type_id, VolontaryType.all, :id, :name, {prompt: true}, class: "form-control input-lg title" ) %>
   </div>
-    <button id='submit_search' class="actions but title accept">Szukaj</button>
+    <button  class= "btn btn-default col-lg-2 col-lg-offset-10" >Szukaj</button>
   <% end -%>
 </div>
 </div>

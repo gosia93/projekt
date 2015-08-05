@@ -21,8 +21,12 @@ class SearchVolonteersController < ApplicationController
   # POST /search_volonteers
   # POST /search_volonteers.json
   def create
-     @search_volonteer = SearchVolonteer.create(search_volonteer_params)
-    redirect_to @search_volonteer
+    if user_signed_in?
+      @search_volonteer = SearchVolonteer.create(search_volonteer_params)
+      redirect_to @search_volonteer
+    else
+      redirect_to organisation_home_index_path , {notice: "Musisz być zalogowany, żeby skorzystać z wyszukiwarki.", class: "alert alert-warning"}
+    end
   end
 
   private

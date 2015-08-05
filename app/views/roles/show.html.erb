@@ -1,10 +1,48 @@
+<p id="notice"><%= notice %></p>
+  <div class="page-header-my">
+  <h1 class="text-center title">STREFA WOLONTARIATU</h1>
+</div>
+  <div class="container-fluid">
+          <div class"navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           </div>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav nav-justified nav-adm nav-all menu-text">
+            <li class="active">
+                <%= link_to 'Strona główna', home_index_path %>
+            </li>
+            <li class="active">
+              <%= link_to "Wolontariaty", volontary_types_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Użytkownicy', users_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Role użytkowników', roles_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Moderacja', comments_path %>
+            </li>
+          </ul>
+      </div>
+   </nav>
+    <div class="col-lg-6 col-lg-offset-4 form title tab">
+		<p>
+		  <strong>ID:</strong>
+		  <%= @role.id %>
+		 </p>
+		 <p>
+		   <strong>Nazwa:</strong>
+		  <%= @role.name %>
+		</p>
 
 
-<p>
-  <strong>Name:</strong>
-  <%= @role.id %>
-  <%= @role.name %>
-</p>
-
-<%= link_to 'Edit', edit_role_path(@role) %> |
-<%= link_to 'Back', roles_path %>
+<%= link_to 'Edytuj', edit_role_path(@role) %> |
+<%= link_to 'Wróć', roles_path %>
+</div>

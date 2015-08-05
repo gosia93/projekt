@@ -1,4 +1,42 @@
 <p id="notice"><%= notice %></p>
+<% if user_signed_in? && current_user.is_volonteer? %>
+  <div class="page-header-my">
+    <h1 class="text-center title">STREFA WOLONTARIUSZA</h1>
+  </div>
+  <ol class="breadcrumb">
+    <li><%= link_to 'Strona główna', home_index_path %></li>
+    <li class="active">Twój profil</li>
+  </ol>
+  <nav>
+      <div class="container-fluid">
+          <div class"navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           </div>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav nav-justified nav-vol nav-all menu-text">
+            <li class="active">
+                <%= link_to 'Strona główna', home_index_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Zarejestruj się', new_user_registration_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Wyszukaj organizację', new_search_organisation_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Wyszukaj osobę prywatną', search_individuals_path %>
+            </li>
+          </ul>
+      </div>
+   </nav>
+<% end %>
+<% if user_signed_in? && current_user.is_organisation?  %>
 <div class="page-header-my">
   <h1 class="text-center title">STREFA ORGANIZACJI</h1>
 </div>
@@ -27,11 +65,47 @@
               <%= link_to 'Zarejestruj organizację', new_user_registration_path %>
             </li>
             <li class="active">
-              <%= link_to 'Wyszukaj wolontariusza', home_index_path %>
+              <%= link_to 'Wyszukaj wolontariusza', new_search_volonteer_path %>
             </li>
           </ul>
       </div>
    </nav>
+   </nav>
+   <% elsif user_signed_in? && current_user.is_individual? %>
+    <div class="page-header-my">
+  <h1 class="text-center title">STREFA OSÓB PRYWATNYCH</h1>
+</div>
+<ol class="breadcrumb">
+  <li><%= link_to 'Strona główna', home_index_path %></li>
+  <li><%= link_to 'Szukam wolontariusza', look_for_volonteer_index_path %></li>
+  <li class="active">Strefa osób prywatnych</li>
+</ol>
+  <nav>
+      <div class="container-fluid">
+          <div class"navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           </div>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav nav-justified nav-ind nav-all menu-text">
+            <li class="active">
+                <%= link_to 'Strona główna', home_index_path %>
+            </li>
+            <li class="active">
+              <%= link_to "Zarejestruj się", new_user_registration_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Wyszukaj wolontariusza', search_by_individual_volonteers_path %>
+            </li>
+          </ul>
+      </div>
+   </nav>
+  <% end %>
 <div class="form title">
   <div class="row">
     <div class="col-lg-2 col-lg-offset-2">
@@ -72,7 +146,8 @@
       <%= render partial: "comments/form", locals: {commentable: @volonteer} %>
     </p>
   </div>
-  <div class="col-lg-12">
-    <button type="button" class="accept col-lg-4 col-lg-offset-4"><%= link_to 'Skontaktuj się z wolontariuszem', home_index_path %></button>
-  </div>
+</div>
+<div class="col-lg-12">
+  <button type="button" class="accept col-lg-4 col-lg-offset-4">
+     <%= link_to 'Skontaktuj się z wolontariuszem', home_index_path %></button>
 </div>

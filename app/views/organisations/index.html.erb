@@ -1,11 +1,13 @@
 <p id="notice"><%= notice %></p>
-<div class="page-header-my">
-  <h1 class="text-center title">STREFA WOLONTARIUSZA</h1>
-</div>
-<ol class="breadcrumb">
-  <li><%= link_to 'Strona główna', home_index_path %></li>
-  <li class="active">Strefa wolontariusza</li>
-</ol>
+<% if user_signed_in? && current_user.is_volonteer? %>
+  <div class="page-header-my">
+    <h1 class="text-center title">STREFA WOLONTARIUSZA</h1>
+  </div>
+  <ol class="breadcrumb">
+    <li><%= link_to 'Strona główna', home_index_path %></li>
+     <li><%= link_to 'Strefa wolontariusza', volonteer_home_index_path %></li>
+    <li class="active">Wyszukaj organizację</li>
+  </ol>
   <nav>
       <div class="container-fluid">
           <div class"navbar-header">
@@ -26,32 +28,16 @@
               <%= link_to 'Zarejestruj się', new_user_registration_path %>
             </li>
             <li class="active">
-              <%= link_to 'Wyszukaj organizację', home_index_path %>
+              <%= link_to 'Wyszukaj organizację', new_search_organisation_path %>
             </li>
             <li class="active">
-              <%= link_to 'Wyszukaj osobę prywatną', home_index_path %>
+              <%= link_to 'Wyszukaj osobę prywatną', search_individuals_path %>
             </li>
           </ul>
       </div>
    </nav>
-   <div class="tab">
-   <nav>
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-
+<% end %>
+<div class= "tab">
 <table class="table table-bordered table-hover table-condensed table-responsive">
   <thead>
     <tr class="th">
@@ -74,6 +60,6 @@
   </tbody>
 </table>
 </div>
-
+</div>
 <br>
 

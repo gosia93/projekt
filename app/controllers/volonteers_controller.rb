@@ -46,8 +46,9 @@ class VolonteersController < ApplicationController
   def update
     respond_to do |format|
       if @volonteer.update(volonteer_params)
-        format.html { redirect_to @volonteer, notice: 'Volonteer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @volonteer }
+
+        format.html {redirect_to :back, notice: "Zmieniono dane!" }
+        format.json { render :edit, status: :ok, location: @volonteer}
       else
         format.html { render :edit }
         format.json { render json: @volonteer.errors, status: :unprocessable_entity }

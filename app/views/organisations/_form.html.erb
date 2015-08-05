@@ -40,8 +40,8 @@
      <label class="title">Typ wolontariatu</label><br>
    <%= collection_select(:organisation, :volontary_type_id, VolontaryType.all, :id, :name, {prompt: true}, class: "form-control input-lg") %>
   </div>
-  <div class="actions but title accept">
-    <%= f.submit "Potwierdź" %>
+  <div>
+    <%= f.submit "Potwierdź", class: "btn btn-default col-lg-2 col-lg-offset-10" %>
   </div>
 <% end %>
 </div>

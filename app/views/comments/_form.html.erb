@@ -1,8 +1,9 @@
+
 <%= form_for [commentable, Comment.new] do |f| %>
   <div class="form-group col-lg-offset-1 tab">
     <%= f.text_area :content, class: "form-control", placeholder: "Dodaj komentarz" %>
   </div>
-  <div class=" accept col-lg-offset-10">
-    <%= f.submit "Dodaj" %>
+  <div >
+    <%= f.submit "Dodaj", class: "btn btn-default col-lg-2 col-lg-offset-10" %>
   </div>
 <% end %>

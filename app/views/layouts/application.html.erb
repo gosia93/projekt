@@ -12,8 +12,21 @@
   			<ul class="nav navbar-nav navbar-right ">
   				<li><%= link_to "Regulamin", rule_index_path %></li>
           <% if user_signed_in? %>
-          <li> <%= link_to "Twój profil", edit_user_registration_path %></li>
+            <% if current_user.volonteer != nil || current_user.organisation !=nil || current_user.individual !=nil || current_user.admin? %>
+            <% if current_user.is_volonteer?  %>
+              <li><%= link_to "Twój profil", edit_volonteer_path(current_user.volonteer) %></li>
+            <% end %>
+            <% if current_user.is_organisation?  %>
+              <li><%= link_to "Twój profil", edit_organisation_path(current_user.organisation) %></li>
+            <% end %>
+            <% if current_user.is_individual?  %>
+              <li><%= link_to "Twój profil", edit_individual_path(current_user.individual) %></li>
+            <% end %>
+            <% if current_user.admin?  %>
+               <li> <%= link_to "Twój profil", edit_user_registration_path %></li>
+            <% end %>
           <li> <%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %></li>
+          <% end %>
         <% else %>
             <li><%= link_to "Logowanie", new_user_session_path %></li>
       <% end %>

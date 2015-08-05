@@ -1,5 +1,38 @@
-<h1>New Volontary Type</h1>
+<p id="notice"><%= notice %></p>
+  <div class="page-header-my">
+  <h1 class="text-center title">STREFA WOLONTARIATU</h1>
+</div>
+  <div class="container-fluid">
+          <div class"navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           </div>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav nav-justified nav-adm nav-all menu-text">
+            <li class="active">
+                <%= link_to 'Strona główna', home_index_path %>
+            </li>
+            <li class="active">
+              <%= link_to "Wolontariaty", volontary_types_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Użytkownicy', users_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Role użytkowników', roles_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Moderacja', comments_path %>
+            </li>
+          </ul>
+      </div>
+   </nav>
+   <div class = "tab">
+		<%= render 'form' %>
+	</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', volontary_types_path %>

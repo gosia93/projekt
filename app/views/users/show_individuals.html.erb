@@ -1,14 +1,8 @@
 <p id="notice"><%= notice %></p>
-<div class="page-header-my">
-  <h1 class="text-center title">STREFA ORGANIZACJI</h1>
+  <div class="page-header-my">
+  <h1 class="text-center title">STREFA WOLONTARIATU</h1>
 </div>
-<ol class="breadcrumb">
-  <li><%= link_to 'Strona główna', home_index_path %></li>
-  <li><%= link_to 'Szukam wolontariusza', look_for_volonteer_index_path %></li>
-  <li class="active">Strefa organizacji</li>
-</ol>
-  <nav>
-      <div class="container-fluid">
+  <div class="container-fluid">
           <div class"navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only"></span>
@@ -19,15 +13,21 @@
            </div>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav nav-justified nav-org nav-all menu-text ">
+          <ul class="nav nav-justified nav-adm nav-all menu-text">
             <li class="active">
                 <%= link_to 'Strona główna', home_index_path %>
             </li>
             <li class="active">
-              <%= link_to 'Zarejestruj organizację', new_user_registration_path %>
+              <%= link_to "Wolontariaty", volontary_types_path %>
             </li>
             <li class="active">
-              <%= link_to 'Wyszukaj wolontariusza', home_index_path %>
+              <%= link_to 'Użytkownicy', users_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Role użytkowników', roles_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Moderacja', comments_path %>
             </li>
           </ul>
       </div>
@@ -36,7 +36,7 @@
 <div class="row">
 <div class="col-lg-2 col-lg-offset-2">
 <p>
-<%= image_tag @user.volonteer.photo.url, size: "130x200", alt: "Zdjęcie wolontariusza"%>
+<%= image_tag @user.individual.photo.url, size: "130x200", alt: "Zdjęcie wolontariusza"%>
 </p>
 </div>
 <div class="col-lg-6">
@@ -49,42 +49,38 @@
   <%= @user.email %>
 </p>
   <strong>Imię:</strong>
-  <%= @user.volonteer.name %>
+  <%= @user.individual.name %>
 </p>
 
 <p>
   <strong>Nazwisko:</strong>
-  <%= @user.volonteer.surname %>
+  <%= @user.individual.surname %>
 </p>
 
 <p>
   <strong>Wiek:</strong>
-  <%= @user.volonteer.age %>
+  <%= @user.individual.age %>
 </p>
 
 <p>
   <strong>Miasto:</strong>
-  <%= @user.volonteer.city %>
-</p>
-<p>
-  <strong>Rodzaj wolontariatu:</strong>
-  <%= @user.volonteer.volontary_type%>
+  <%= @user.individual.city %>
 </p>
 </div>
 </div>
 <div class="col-lg-8 col-lg-offset-2 row but">
 <p>
   <strong>Opis:</strong>
-  <%= @user.volonteer.about %>
+  <%= @user.individual.about %>
 </p>
 <p>
-  <strong>Id:</strong>
-  <%= @user.volonteer.user_id %>
+  <strong>Potrzeby:</strong>
+  <%= @user.individual.needs %>
 </p>
 </div>
 </div>
 
 
 <div class="col-lg-12">
-<button type="button" class="accept col-lg-4 col-lg-offset-4"><%= link_to 'Skontaktuj się z wolontariuszem', home_index_path %></button>
-</div
+<button type="button" class="accept col-lg-4 col-lg-offset-4"><%= link_to 'Skontaktuj się z użytkownikiem', home_index_path %></button>
+</div>

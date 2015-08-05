@@ -1,46 +1,161 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<p id="notice"><%= notice %></p>
+<% if user_signed_in? && current_user.is_organisation?  %>
+<div class="page-header-my">
+  <h1 class="text-center title">STREFA ORGANIZACJI</h1>
+</div>
+<ol class="breadcrumb">
+  <li><%= link_to 'Strona główna', home_index_path %></li>
+  <li class="active">Twój profil</li>
+</ol>
+  <nav>
+      <div class="container-fluid">
+          <div class"navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           </div>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav nav-justified nav-org nav-all menu-text ">
+            <li class="active">
+                <%= link_to 'Strona główna', home_index_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Zarejestruj organizację', new_user_registration_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Wyszukaj wolontariusza', new_search_volonteer_path %>
+            </li>
+          </ul>
+      </div>
+   </nav>
+   </nav>
+   <% elsif user_signed_in? && current_user.is_individual? %>
+    <div class="page-header-my">
+  <h1 class="text-center title">STREFA OSÓB PRYWATNYCH</h1>
+</div>
+<ol class="breadcrumb">
+  <li><%= link_to 'Strona główna', home_index_path %></li>
+  <li class="active">Twój profil</li>
+</ol>
+  <nav>
+      <div class="container-fluid">
+          <div class"navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           </div>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav nav-justified nav-ind nav-all menu-text">
+            <li class="active">
+                <%= link_to 'Strona główna', home_index_path %>
+            </li>
+            <li class="active">
+              <%= link_to "Zarejestruj się", new_user_registration_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Wyszukaj wolontariusza', search_by_individual_volonteers_path %>
+            </li>
+          </ul>
+      </div>
+   </nav>
+  <% elsif user_signed_in? && current_user.is_volonteer? %>
+  <div class="page-header-my">
+  <h1 class="text-center title">STREFA WOLONTARIUSZA</h1>
+</div>
+<ol class="breadcrumb">
+  <li><%= link_to 'Strona główna', home_index_path %></li>
+  <li class="active">Twój profil</li>
+</ol>
+  <nav>
+      <div class="container-fluid">
+          <div class"navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           </div>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav nav-justified nav-vol nav-all menu-text">
+            <li class="active">
+                <%= link_to 'Strona główna', home_index_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Zarejestruj się', new_user_registration_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Wyszukaj organizację', home_index_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Wyszukaj osobę prywatną', home_index_path %>
+            </li>
+          </ul>
+      </div>
+   </nav>
+  <% end %>
+  <div class="col-lg-6 col-lg-offset-3 tab">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="field but">
+   <label class="title">Email</label><br>
+    <%= f.email_field :email, autofocus: true, class: "form-control input-lg" %>
   </div>
-  <div class="field">
-  <%= f.label :login%><br />
-  <%= f.text_field :login %>
-</div>
- <div class="field">
-    <%= collection_select(:user, :role_id, Role.all, :id, :name, {prompt: true}) %>
+  <div class="field but">
+    <label class="title">Login</label><br>
+    <%= f.text_field :login, class: "form-control input-lg" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="field but">
+  <label class="title">Hasło</label><br> <i>(Zostaw puste, jeśli nie zmieniasz hasła.)</i><br />
+    <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="field but">
+     <label class="title">Potwierdzenie hasła</label><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-lg" %>
   </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+  <div class="field but">
+    <label class="title">Obecne hasło</label><br><i>(Musisz podać stare hasło, aby potwierdzić zmiany.)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off", class: "form-control input-lg" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
+   <div class=" but ">
+    <%= f.submit "Potwierdź", class: "btn btn-default col-lg-2 col-lg-offset-10"  %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+ <div class="tab">
+ <hr>
+<p>Chcesz usunąć konto? <%= button_to "Usuń", registration_path(resource_name), data: { confirm: "Jesteś pewien?" }, method: :deletel, class: "btn btn-default" %></p>
+</div>
+<% if user_signed_in? && current_user.is_volonteer?  %>
+  <div class="tab">
+    <%= link_to 'Edytuj szczegółowe dane', edit_volonteer_path(current_user.volonteer) %>
+  </div>
+<% end %>
+<% if user_signed_in? && current_user.is_organisation?  %>
+  <div class="tab">
+    <%= link_to 'Edytuj szczegółowe dane', edit_organisation_path(current_user.organisation) %>
+  </div>
+<% end %>
+<% if user_signed_in? && current_user.is_individual?  %>
+  <div class="tab">
+    <%= link_to 'Edytuj szczegółowe dane', edit_individual_path(current_user.individual) %>
+  </div>
+<% end %>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

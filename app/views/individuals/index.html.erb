@@ -1,11 +1,13 @@
-<div class="page-header-my">
-  <h1 class="text-center title">STREFA OSÓB PRYWATNYCH</h1>
-</div>
-<ol class="breadcrumb">
-  <li><%= link_to 'Strona główna', home_index_path %></li>
-  <li><%= link_to 'Szukam wolontariusza', look_for_volonteer_index_path %></li>
-  <li class="active">Strefa osób prywatnych</li>
-</ol>
+<p id="notice"><%= notice %></p>
+<% if user_signed_in? && current_user.is_volonteer? %>
+  <div class="page-header-my">
+    <h1 class="text-center title">STREFA WOLONTARIUSZA</h1>
+  </div>
+  <ol class="breadcrumb">
+    <li><%= link_to 'Strona główna', home_index_path %></li>
+     <li><%= link_to 'Strefa wolontariusza', volonteer_home_index_path %></li>
+    <li class="active">Wyszukaj osobę prywatną</li>
+  </ol>
   <nav>
       <div class="container-fluid">
           <div class"navbar-header">
@@ -18,51 +20,117 @@
            </div>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav nav-justified nav-ind nav-all menu-text">
+          <ul class="nav nav-justified nav-vol nav-all menu-text">
             <li class="active">
                 <%= link_to 'Strona główna', home_index_path %>
             </li>
             <li class="active">
-              <%= link_to "Zarejestruj się", new_user_registration_path %>
+              <%= link_to 'Zarejestruj się', new_user_registration_path %>
             </li>
             <li class="active">
-              <%= link_to 'Wyszukaj wolontariusza', home_index_path %>
+              <%= link_to 'Wyszukaj organizację', new_search_organisation_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Wyszukaj osobę prywatną', search_individuals_path %>
             </li>
           </ul>
       </div>
    </nav>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Age</th>
-      <th>City</th>
-      <th>About</th>
-      <th>Needs</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @individuals.each do |individual| %>
-      <tr>
-        <td><%= individual.name %></td>
-        <td><%= individual.surname %></td>
-        <td><%= individual.age %></td>
-        <td><%= individual.city %></td>
-        <td><%= individual.about %></td>
-        <td><%= individual.needs %></td>
-        <td><%= individual.user_id %></td>
-        <td><%= link_to 'Show', individual %></td>
-        <td><%= link_to 'Edit', edit_individual_path(individual) %></td>
-        <td><%= link_to 'Destroy', individual, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<% end %>
+<% if user_signed_in? && current_user.is_organisation?  %>
+  <div class="page-header-my">
+    <h1 class="text-center title">STREFA ORGANIZACJI</h1>
+  </div>
+  <ol class="breadcrumb">
+    <li><%= link_to 'Strona główna', home_index_path %></li>
+    <li><%= link_to 'Szukam wolontariusza', look_for_volonteer_index_path %></li>
+    <li class="active">Strefa organizacji</li>
+  </ol>
+  <nav>
+    <div class="container-fluid">
+      <div class"navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav nav-justified nav-org nav-all menu-text ">
+        <li class="active">
+          <%= link_to 'Strona główna', home_index_path %>
+        </li>
+        <li class="active">
+          <%= link_to 'Zarejestruj organizację', new_user_registration_path %>
+        </li>
+        <li class="active">
+          <%= link_to 'Wyszukaj wolontariusza', new_search_volonteer_path %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<% elsif user_signed_in? && current_user.is_individual? %>
+  <div class="page-header-my">
+    <h1 class="text-center title">STREFA OSÓB PRYWATNYCH</h1>
+  </div>
+  <ol class="breadcrumb">
+    <li><%= link_to 'Strona główna', home_index_path %></li>
+    <li><%= link_to 'Szukam wolontariusza', look_for_volonteer_index_path %></li>
+    <li class="active">Strefa osób prywatnych</li>
+  </ol>
+  <nav>
+    <div class="container-fluid">
+      <div class"navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav nav-justified nav-ind nav-all menu-text">
+        <li class="active">
+          <%= link_to 'Strona główna', home_index_path %>
+        </li>
+        <li class="active">
+          <%= link_to "Zarejestruj się", new_user_registration_path %>
+        </li>
+        <li class="active">
+          <%= link_to 'Wyszukaj wolontariusza', search_by_individual_volonteers_path %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<% end %>
+   <div class="tab">
+    <table class="table table-bordered table-hover table-condensed table-responsive">
+     <thead>
+        <tr class="th">
+          <th>Imię</th>
+          <th>Nazwisko</th>
+          <th>Wiek</th>
+          <th>Miasto</th>
+          <th>Potrzeby</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody class="form">
+        <% @individuals.each do |individual| %>
+        <tr>
+          <td><%= individual.name %></td>
+          <td><%= individual.surname %></td>
+          <td><%= individual.age %></td>
+          <td><%= individual.city %></td>
+          <td><%= individual.needs %></td>
+          <td><%= link_to 'Zobacz', individual %></td> 
+        </tr>
+        <% end %>
+     </tbody>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Individual', new_individual_path %>

@@ -1,11 +1,12 @@
-<div class="page-header-my">
-  <h1 class="text-center title">STREFA OSÓB PRYWATNYCH</h1>
-</div>
-<ol class="breadcrumb">
-  <li><%= link_to 'Strona główna', home_index_path %></li>
-  <li><%= link_to 'Szukam wolontariusza', look_for_volonteer_index_path %></li>
-  <li class="active">Strefa osób prywatnych</li>
-</ol>
+<p id="notice"><%= notice %></p>
+<% if user_signed_in? && current_user.is_volonteer? %>
+  <div class="page-header-my">
+    <h1 class="text-center title">STREFA WOLONTARIUSZA</h1>
+  </div>
+  <ol class="breadcrumb">
+    <li><%= link_to 'Strona główna', home_index_path %></li>
+    <li class="active">Strefa wolontariusza</li>
+  </ol>
   <nav>
       <div class="container-fluid">
           <div class"navbar-header">
@@ -18,21 +19,64 @@
            </div>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav nav-justified nav-ind nav-all menu-text">
+          <ul class="nav nav-justified nav-vol nav-all menu-text">
             <li class="active">
                 <%= link_to 'Strona główna', home_index_path %>
             </li>
             <li class="active">
-              <%= link_to "Zarejestruj się", new_user_registration_path %>
+              <%= link_to 'Zarejestruj się', new_user_registration_path %>
             </li>
             <li class="active">
-              <%= link_to 'Wyszukaj wolontariusza', home_index_path %>
+              <%= link_to 'Wyszukaj organizację', new_search_organisation_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Wyszukaj osobę prywatną', search_individuals_path %>
             </li>
           </ul>
       </div>
    </nav>
+<% elsif user_signed_in? && current_user.is_individual? %>
+  <div class="page-header-my">
+    <h1 class="text-center title">STREFA OSÓB PRYWATNYCH</h1>
+  </div>
+  <ol class="breadcrumb">
+    <li><%= link_to 'Strona główna', home_index_path %></li>
+    <li class="active">Twój profil</li>
+  </ol>
+  <nav>
+    <div class="container-fluid">
+      <div class"navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav nav-justified nav-ind nav-all menu-text">
+        <li class="active">
+          <%= link_to 'Strona główna', home_index_path %>
+        </li>
+        <li class="active">
+          <%= link_to "Zarejestruj się", new_user_registration_path %>
+        </li>
+        <li class="active">
+          <%= link_to 'Wyszukaj wolontariusza', search_by_individual_volonteers_path %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<% end %>
 <div class="form title">
   <div class="row">
+    <div class="col-lg-2 col-lg-offset-2">
+      <p>
+        <%= image_tag @individual.photo.url, size: "130x200", alt: "Zdjęcie użytkownika" %>
+      </p>
+    </div>
+    <div class="col-lg-6">
       <p>
         <strong>Imię:</strong>
         <%= @individual.name %>
@@ -49,19 +93,30 @@
         <strong>Miasto:</strong>
         <%= @individual.city %>
       </p>
+    </div>
   </div>
   <div class="col-lg-8 col-lg-offset-2 row but">
     <p>
-      <strong>Needs:</strong>
+      <strong>Potrzeby:</strong>
       <%= @individual.needs %>
     </p>
+    <div class = "tab">
     <p>
       <strong>Opis:</strong>
       <%= @individual.about %>
-      </p>
+    </p>
+    </div>
+  </div>
+  <div class="col-lg-8 col-lg-offset-2 row but">
       <p>
         <%= render partial: "comments/comments", locals: {commentable: @individual} %>
         <%= render partial: "comments/form", locals: {commentable: @individual} %>
       </p>
   </div>
 </div>
+<div class="col-lg-12">
+   <button type="button" class="accept col-lg-4 col-lg-offset-4">
+    <%= link_to 'Skontaktuj się z użytkownikiem', home_index_path %></button>
+</div>
+
+

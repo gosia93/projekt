@@ -1,5 +1,5 @@
 class VolontaryTypesController < ApplicationController
-  before_action :set_volontary_type, only: [:show, :edit, :update, :destroy]
+load_and_authorize_resource
 
   # GET /volontary_types
   # GET /volontary_types.json

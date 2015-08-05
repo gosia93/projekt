@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.status = "draft"
     @comment.save
-    redirect_to @commentable, notice: "Your comment was successfully posted."
+    redirect_to @commentable, notice: "Twój komentarz został wysłany do moderacji."
 
   end
 
