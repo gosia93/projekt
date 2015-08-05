@@ -1,5 +1,6 @@
 class SearchOrganisation < ActiveRecord::Base
-	
+	validates_format_of :city, :with => /\A\p{Lu}{1}\p{L}{2,}(\-{1}\p{Lu}{1}\p{L}{2,})*\z/,
+		:message => "jest niepoprawna!"
 		def search_organisations
 		organisations = Organisation.all
 
