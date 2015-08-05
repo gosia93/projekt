@@ -1,7 +1,7 @@
 <%= form_for(@volontary_type) do |f| %>
   <% if @volontary_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@volontary_type.errors.count, "error") %> prohibited this volontary_type from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <h2><%= pluralize(@volontary_type.errors, "error") %> Wystąpiły błędy</h2>
 
       <ul>
       <% @volontary_type.errors.full_messages.each do |message| %>

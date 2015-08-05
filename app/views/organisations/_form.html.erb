@@ -1,7 +1,7 @@
 <%= form_for @organisation, html: {multipart: true} do |f| %>
   <% if @organisation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@organisation.errors.count, "error") %> prohibited this organisation from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <h2><%= pluralize(@organisation.errors.count, "error") %> Wystąpiły błędy</h2>
 
       <ul>
       <% @organisation.errors.full_messages.each do |message| %>
