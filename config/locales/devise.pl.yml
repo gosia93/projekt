@@ -56,16 +56,44 @@ pl:
       not_found: "nie znaleziono"
       not_locked: "nie był zablokowany"
       not_saved:
-        one: "Nie można zapisać z powodu błędu:"
-        other: "Nie można zapisać z powodu następujących błędów:"
+        one: "%{resource} nie został zapisany z powodu błędu:"
+        other: "%{resource} nie został zapisany z powodu następujących błędów:"
       blank: "Wypełnij pole!"
       count: "Podana wielkość musi być większa od 0!"
       not_a_number: "Nieprawidłowa wartość!"
       greater_than: "Niepoprawna wartość!"
       greater_than_or_equal_to": "Niepoprawna wartość!"
       taken: "Istnieje już taki %{resource}"
-    activerecord:
-      attributes:
-        user: 
-          password: "Hasło"
-          role: "Typ użytkownika"
+  activerecord:
+    models: 
+      volonteer: "Wolontariusz"
+      organisation: "Organizacja"
+      individual: "Osoba prywatna"
+      user: "Użytkownik"
+      role: "Typ użytkownika"
+      volontary_type: "Rodzaj wolontariatu"
+      comment: "Komentarz"
+    attributes:
+      volonteer:
+        name: "Imię"
+        city: "Miasto"
+        age: "Wiek"
+        about: "Opis"
+        volontary_type_id: "Rodzaj wolontariatu"
+      organisation:
+        name: "Nazwa"
+        about: "Opis"
+        volontary_type_id: "Rodzaj wolontariatu"
+        city: "Miasto"
+      individual:
+        name: "Imię"
+        surname: "Nzwisko"
+        age: "Wiek"
+        about: "Opis"
+        needs: "Potrzeby"
+        city: "Miasto"
+      user:
+        password: "Hasło"
+        role_id: "Typ użytkownika"
+      comment: 
+        content: "Treść"

@@ -118,7 +118,7 @@ pl:
       second: Sekundy
       year: Rok
   errors:
-    format: ! '%{attribute} %{message}'
+    format: ! 'Pole %{attribute} %{message}'
     messages:
       accepted: musi zostać zaakceptowane
       blank: nie może być puste
@@ -236,27 +236,36 @@ pl:
     pm: po południu
     
     activerecord:
-      attributes:
-        volonteer: 
-           name: "Imię"
-           surname: "Nazwisko"
-           age: "Wiek"
-           about: "O mnie"
-           city: "Miasto"
-           volontary_type_id: "Rodzaj wolontariatu"
-        organisation:
-           name: "nazwa"
-           city: "miasto"
-           volontary_type_id: "Rodzaj wolontariatu"
-        individual:
-           name: "Imię"
-           surname: "Nazwisko"
-           age: "Wiek"
-           about: "O mnie"
-           needs: "Potrzeby"
-        user:
-           password: "Hasło"
-           role_id: "Rodzaj użtkownika"
-        comment: 
-            content: "Treść"
+    models: 
+      volonteer: "Wolontariusz"
+      organisation: "Organizacja"
+      individual: "Osoba prywatna"
+      user: "Użytkownik"
+      role: "Typ użytkownika"
+      volontary_type: "Rodzaj wolontariatu"
+      comment: "Komentarz"
+    attributes:
+      volonteer:
+        name: "Imię"
+        city: "Miasto"
+        age: "Wiek"
+        about: "Opis"
+        volontary_type_id: "Rodzaj wolontariatu"
+      organisation:
+        name: "Nazwa"
+        about: "Opis"
+        volontary_type_id: "Rodzaj wolontariatu"
+        city: "Miasto"
+      individual:
+        name: "Imię"
+        surname: "Nzwisko"
+        age: "Wiek"
+        about: "Opis"
+        needs: "Potrzeby"
+        city: "Miasto"
+      user:
+        password: "Hasło"
+        role_id: "Typ użytkownika"
+      comment: 
+        content: "Treść"
 
