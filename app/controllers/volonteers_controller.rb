@@ -32,7 +32,7 @@ class VolonteersController < ApplicationController
      @volonteer.user_id = current_user.id
     respond_to do |format|
       if @volonteer.save
-        format.html { redirect_to @volonteer, notice: 'Volonteer was successfully created.' }
+        format.html { redirect_to @volonteer, notice: 'Informacje zostały dodane' }
         format.json { render :show, status: :created, location: @volonteer }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class VolonteersController < ApplicationController
     respond_to do |format|
       if @volonteer.update(volonteer_params)
 
-        format.html {redirect_to :back, notice: "Zmieniono dane!" }
+        format.html {redirect_to :back, notice: "Informacje zostały zmienione" }
         format.json { render :edit, status: :ok, location: @volonteer}
       else
         format.html { render :edit }

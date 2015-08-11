@@ -14,7 +14,16 @@
   background-color: #cf6673;
 }
 .nav-org .active a{
+
   background-color: #ca5564;
+}
+
+.nav-org .focus a{
+  background-color: #ba5b67;
+  color: #fff;
+}
+.nav-org .focus a:hover{
+  background-color: #ba5b67;
 }
 
 .nav-ind .active a{
@@ -25,15 +34,33 @@
 
   background-color: #ff3451;
 }
+.nav-ind .focus a{
+  background-color: #e51b37;
+  color: #fff;
+}
+.nav-ind .focus a:hover{
+  background-color: #e51b37;
+}
+
 
 .nav-vol .active a{
-
 background-color: #00e1a9;
 }
 .nav-vol .active a:hover{
 
   background-color: #19e4b1;
 }
+.nav-vol .focus a{
+  background-color: #00ca98;
+  color: #fff;
+}
+.nav-vol .focus a:hover{
+
+  background-color: #00ca98;
+}
+
+
+
 
 .nav-adm .active a{
 
@@ -198,6 +225,7 @@ height: 100%;
 }
 
 
+
 /*! end of Strefa wolontariatu */
 
 html {
@@ -206,8 +234,13 @@ html {
       -ms-text-size-adjust: 100%;
 }
 body {
+
   margin: 0;
   background-color: #F3F3F3;
+  background-image: url("volunteer_hands.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   padding-bottom:70px;
 }
 article,

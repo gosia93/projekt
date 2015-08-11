@@ -6,9 +6,10 @@ class Volonteer < ActiveRecord::Base
    	validates :about, presence: true
    	validates :user_id, presence: true
    	validates :volontary_type_id, presence: true
-   	validates_format_of :city, :with => /\A\p{Lu}{1}\p{L}{2,}(\-{1}\p{Lu}{1}\p{L}{2,})*\z/,
-     :message => "jest niepoprawna!"
+   	#validates_format_of :city, :with => /\A\p{Lu}{1}\p{L}{2,}(\-{1}\p{Lu}{1}\p{L}{2,})*\z/,
+     #:message => "jest niepoprawne!"
      validates_numericality_of :age, :greater_than => 0
+     validates_uniqueness_of :user_id
 
 	has_attached_file :photo
 	validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/

@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
   validates_presence_of :role_id
   
   belongs_to :role
-  has_one :volonteer
-  has_one :organisation
-  has_one :individual
+  has_one :volonteer, dependent: :destroy
+  has_one :organisation, dependent: :destroy
+  has_one :individual, dependent: :destroy
 
    def is_volonteer?
     self.role_id == 1

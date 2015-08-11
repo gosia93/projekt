@@ -2,7 +2,7 @@
 <%= form_for @volonteer, html: {multipart: true} do |f| %>
   <% if @volonteer.errors.any? %>
    <div id="error_explanation" class="alert alert-danger" role="alert">
-      <h2><%= pluralize(@volonteer.errors, "error") %> Wystąpiły błędy</h2>
+      <h4>Wystąpiły błędy: </h4>
 
       <ul>
       <% @volonteer.errors.full_messages.each do |message| %>
