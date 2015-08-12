@@ -1,6 +1,7 @@
 class IndividualsController < ApplicationController
-  before_action :set_individual, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_individual, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
   # GET /individuals
   # GET /individuals.json
   def index
@@ -33,8 +34,8 @@ class IndividualsController < ApplicationController
 
     respond_to do |format|
       if @individual.save
-        format.html { redirect_to @individual, notice: 'Informacje zostały dodane!' }
-        format.json { render :show, status: :created, location: @individual }
+        format.html { redirect_to edit_individual_path(@individual), notice: 'Informacje zostały dodane!' }
+        format.json { render :edit, status: :created, location: @individual }
       else
         format.html { render :new }
         format.json { render json: @individual.errors, status: :unprocessable_entity }

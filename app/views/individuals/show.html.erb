@@ -1,9 +1,6 @@
 
-<% if user_signed_in? && current_user.is_volonteer? %>
+
    <%= render 'menu/menu_volonteers_choosen2' %>
-<% elsif user_signed_in? && current_user.is_individual? %>
-   <%= render 'menu/menu_individuals_choosen' %>
-<% end %>
 <div class="form title">
   <div class="row">
     <div class="col-lg-2 col-lg-offset-2">

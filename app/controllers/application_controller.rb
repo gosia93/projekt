@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   rescue_from CanCan::AccessDenied do |exception|
-  flash[:error] = "Access denied!"
+  flash[:error] = "Nie masz wystarczających uprawnień. Zaloguj się lub zarejestruj się i wybierz odpowiedni rodzaj użytkownika."
   redirect_to root_url
 end
 

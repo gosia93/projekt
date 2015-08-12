@@ -1,6 +1,6 @@
 class OrganisationsController < ApplicationController
   before_action :set_organisation, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /organisations
   # GET /organisations.json
   def index
@@ -43,8 +43,8 @@ class OrganisationsController < ApplicationController
   def update
     respond_to do |format|
       if @organisation.update(organisation_params)
-        format.html { redirect_to @organisation, notice: 'Informacje zostały zmienione.' }
-        format.json { render :show, status: :ok, location: @organisation }
+        format.html { redirect_to edit_organisation_path(@organisation), notice: 'Informacje zostały zmienione.' }
+        format.json { render :edit, status: :ok, location: @organisation }
       else
         format.html { render :edit }
         format.json { render json: @organisation.errors, status: :unprocessable_entity }

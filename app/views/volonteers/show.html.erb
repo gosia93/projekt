@@ -1,10 +1,7 @@
 
-<% if user_signed_in? && current_user.is_volonteer? %>
-   <%= render 'menu/menu_volonteers_choosen3' %>
-<% end %>
-<% if user_signed_in? && current_user.is_organisation?  %>
+<% if user_signed_in? && current_user.is_organisation? || current_user.is_volonteer? %>
    <%= render 'menu/menu_organisations_choosen' %>
-   <% elsif user_signed_in? && current_user.is_individual? %>
+   <% elsif user_signed_in? && current_user.is_individual? || current_user.is_volonteer? %>
      <%= render 'menu/menu_individuals_choosen2' %>
   <% end %>
 <div class="form title">

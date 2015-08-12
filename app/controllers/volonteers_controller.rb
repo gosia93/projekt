@@ -1,6 +1,6 @@
 class VolonteersController < ApplicationController
   before_action :set_volonteer, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /volonteers
   # GET /volonteers.json
   def index
@@ -32,8 +32,8 @@ class VolonteersController < ApplicationController
      @volonteer.user_id = current_user.id
     respond_to do |format|
       if @volonteer.save
-        format.html { redirect_to @volonteer, notice: 'Informacje zostały dodane' }
-        format.json { render :show, status: :created, location: @volonteer }
+        format.html { redirect_to edit_volonteer_path(@volonteer), notice: 'Informacje zostały dodane' }
+        format.json { render :edit, status: :created, location: @volonteer }
       else
         format.html { render :new }
         format.json { render json: @volonteer.errors, status: :unprocessable_entity }
