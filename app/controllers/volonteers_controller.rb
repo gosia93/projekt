@@ -4,7 +4,7 @@ class VolonteersController < ApplicationController
   # GET /volonteers
   # GET /volonteers.json
   def index
-     @volonteers = Volonteer.search_for(params[:search], :order => params[:order]).all
+     @volonteers = Volonteer.search_for(params[:search], :order => params[:order]).page(params[:page]).per(5).all
   rescue => e
     flash[:error] = e.to_s
     @volonteers= Volonteer.search_for ''

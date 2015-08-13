@@ -268,4 +268,12 @@ pl:
         role_id: "Typ użytkownika"
       comment: 
         content: "Treść"
+    views:
+      pagination:
+        first: "&laquo; Pierwsza"
+        last: "Osttania &rsaquo;"
+        previous: "&lsaquo; Poprzednia"
+        next: "Następna &rsaquo;"
+        truncate: "&hellip;"
+    
 

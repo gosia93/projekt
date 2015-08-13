@@ -1,27 +1,29 @@
 <%= render 'menu/menu_admin' %>
-   <div class="tab">
-<table class="table table-bordered table-hover table-condensed table-responsive">
-  <thead>
-    <tr class="th">
-      <th>Email</th>
-      <th>Login</th>
-      <th>Role</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody class="form">
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.login %></td>
-        <td><%= user.role_id%></td>
-        <td><%= link_to 'Zobacz', user %></td>
-        <td><%= link_to 'Usuń', user, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+<div class="tab">
+    <%= paginate @users %>
+  <table class="table table-bordered table-hover table-condensed table-responsive">
+    <thead>
+      <tr class="th">
+        <th>Email</th>
+        <th>Login</th>
+        <th>Role</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody class="form">
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.login %></td>
+          <td><%= user.role_id%></td>
+          <td><%= link_to 'Zobacz', user %></td>
+          <td><%= link_to 'Usuń', user, method: :delete, data: { confirm: 'Jesteś pewien?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
 </div>

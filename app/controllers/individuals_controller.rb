@@ -5,7 +5,7 @@ class IndividualsController < ApplicationController
   # GET /individuals
   # GET /individuals.json
   def index
-     @individuals = Individual.search_for(params[:search], :order => params[:order]).all
+     @individuals = Individual.search_for(params[:search], :order => params[:order]).page(params[:page]).per(5).all
   rescue => e
     flash[:error] = e.to_s
     @individuals= Individual.search_for ''

@@ -48,7 +48,7 @@
 </div>
 <div class="col-lg-12">
    <button type="button" class="accept col-lg-4 col-lg-offset-4">
-    <%= link_to 'Skontaktuj się z użytkownikiem', home_index_path %></button>
+    <%= mail_to @individual.user.email, "Skontaktuj się z użytkownikiem"  %></button>
 </div>
 
 
