@@ -22,4 +22,3 @@ v12 = VolontaryType.create({name:"inne"})
 
 
 
-admin = User.create({login: "admin", role_id: "4" , email:"strefa_wolontariatu@poczta.fm", password:"strefa123"})
