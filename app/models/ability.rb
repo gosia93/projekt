@@ -4,13 +4,14 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user
     can :read, [Volonteer, Organisation, Individual]
-    can :search, [Volonteer, Individual]
+    cannot :manage, [Volonteer, Organisation, Individual]
     cannot :show, [Volonteer, Organisation, Individual]
+    cannot :manage, [SearchOrganisation, SearchVolonteer]
     if user.admin?
         can :manage, [ Role, VolontaryType, Comment, User]
     elsif user.is_volonteer? 
         can :read, [Organisation, Individual, Volonteer, Comment]
-        can :manage, [Volonteer, Comment]
+        can :manage, [Volonteer, Comment, SearchOrganisation, SearchVolonteer]
         can :search, [Organisation, Individual]
         can :show, [Organisation, Individual]
         cannot :edit, [Organisation, Individual]
@@ -18,7 +19,7 @@ class Ability
     elsif user.is_organisation?
         can :read, [ Volonteer, Comment, Individual]
         can :search, [Volonteer, Organisation, Individual]
-        can :manage, [Organisation, Comment]
+        can :manage, [Organisation, Comment, SearchOrganisation, SearchVolonteer]
         can :show, [Volonteer]
         cannot :show, [Organisation, Individual]
         cannot :edit, [Individual, Volonteer]
@@ -26,7 +27,7 @@ class Ability
     elsif user.is_individual?
         can :read, [ Volonteer, Comment, Organisation]
         can :search, [Volonteer, Organisation]
-        can :manage, [Individual, Comment, Volonteer]
+        can :manage, [Individual, Comment, Volonteer, SearchOrganisation, SearchVolonteer]
         can :show, [Volonteer]
         cannot :show, [Organisation, Individual]
         cannot :edit, [Organisation, Volonteer]

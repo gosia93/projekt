@@ -2,7 +2,7 @@
 # encoding: utf-8
 class SearchVolonteersController < ApplicationController
  
-
+ load_and_authorize_resource
   
 
   # GET /search_volonteers/1

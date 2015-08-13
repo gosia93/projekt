@@ -1,6 +1,6 @@
 class SearchOrganisationsController < ApplicationController
 
-
+ load_and_authorize_resource
 
   # GET /search_organisations/1
   # GET /search_organisations/1.json

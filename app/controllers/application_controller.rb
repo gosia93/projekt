@@ -16,9 +16,24 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  rescue_from CanCan::AccessDenied do |exception|
-  flash[:error] = "Nie masz wystarczających uprawnień. Zaloguj się lub zarejestruj się i wybierz odpowiedni rodzaj użytkownika."
-  redirect_to root_url
-end
+  def not_found
+      flash[:error] = "Strona, której szukasz nie istnieje."
+      redirect_to root_url
+    end
+
+    def record_not_found
+      flash[:error] = "Strona, której szukasz nie istnieje."
+      redirect_to root_url
+    end
+
+      rescue_from CanCan::AccessDenied do |exception|
+     if current_user == nil
+      flash[:error] = "Zaloguj się aby mieć dostęp!"
+      redirect_to new_user_session_path
+     else
+      flash[:error] = "Niestety nie masz dostępu do tych zasobów."
+      redirect_to root_url
+      end
+    end
 
 end
