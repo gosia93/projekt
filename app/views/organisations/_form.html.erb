@@ -12,12 +12,22 @@
   <% end %>
 
 <div class="col-lg-6 col-lg-offset-3">
-<label class="title">Logo</label><br>
  <div class="field but title accept">
-    <%= f.file_field :logo %>
+    <% if @organisation.logo.present? %>
+      <p>
+         <%= image_tag @organisation.logo.url, size: "200x200", alt: "Logo organizacji"%>
+      </p>
+  <% end %>
+  <label class="title">Logo</label><br>
+  <%= f.file_field :logo %>
   </div>
-  <label class="title">Film</label><br>
   <div class="field but title accept">
+    <% if @organisation.video.present? %>
+      <p>
+        <%= video_tag @organisation.video.url, size: "600x480", :controls => true%>
+      </p>
+    <% end %>
+    <label class="title">Film</label><br>
     <%= f.file_field :video %>
   </div>
   <div class="field but">

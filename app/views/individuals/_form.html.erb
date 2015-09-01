@@ -12,6 +12,11 @@
   <% end %>
   <div class="col-lg-6 col-lg-offset-3">
   <div class="field but title accept">
+    <% if @individual.photo.present? %>
+      <p>
+        <%= image_tag @individual.photo.url, size: "130x200", alt: "Zdjęcie wolontariusza"%>
+      </p>
+    <% end %>
     <%= f.file_field :photo %>
   </div>
   <div class="field but">
