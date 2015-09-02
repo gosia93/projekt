@@ -15,7 +15,7 @@
     <% @search_volonteers.each do |search_volonteer| %>
       <tr>
         <td><%= search_volonteer.city %></td>
-        <td><%= search_volonteer.volontary_type_id %></td>
+        <td><%= search_volonteer.volontary_type.name %></td>
         <td><%= link_to 'Show', search_volonteer %></td>
         <td><%= link_to 'Edit', edit_search_volonteer_path(search_volonteer) %></td>
         <td><%= link_to 'Destroy', search_volonteer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

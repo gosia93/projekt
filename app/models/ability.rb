@@ -14,6 +14,8 @@ class Ability
         can :manage, [Volonteer, Comment, SearchOrganisation, SearchVolonteer]
         can :search, [Organisation, Individual]
         can :show, [Organisation, Individual]
+	can :edit, [Volonteer]
+	cannot :show, [Volonteer]
         cannot :edit, [Organisation, Individual]
        
     elsif user.is_organisation?
@@ -21,6 +23,7 @@ class Ability
         can :search, [Volonteer, Organisation, Individual]
         can :manage, [Organisation, Comment, SearchOrganisation, SearchVolonteer]
         can :show, [Volonteer]
+	can :edit, [Organisation]
         cannot :show, [Organisation, Individual]
         cannot :edit, [Individual, Volonteer]
 
@@ -29,6 +32,7 @@ class Ability
         can :search, [Volonteer, Organisation]
         can :manage, [Individual, Comment, Volonteer, SearchOrganisation, SearchVolonteer]
         can :show, [Volonteer]
+	can :edit, [Individual]
         cannot :show, [Organisation, Individual]
         cannot :edit, [Organisation, Volonteer]
     end

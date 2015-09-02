@@ -1,8 +1,6 @@
 
 
-<%if user_signed_in? && current_user.is_individual? %>
    <%= render 'menu/menu_individuals_choosen' %>
-<% end %>
 <div class="tab">
     <%= paginate @volonteers %>
 <table class="table table-bordered table-hover table-condensed table-responsive">

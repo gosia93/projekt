@@ -29,8 +29,8 @@ class OrganisationsController < ApplicationController
     @organisation.user_id = current_user.id
     respond_to do |format|
       if @organisation.save
-        format.html { redirect_to @organisation, notice: 'Informacje zostały dodane.' }
-        format.json { render :show, location: @user}
+        format.html { redirect_to edit_organisation_path(@organisation), notice: 'Informacje zostały zmienione.' }
+        format.json { render :edit, status: :ok, location: @organisation }
       else
         format.html { render :new }
         format.json { render json: @organisation.errors, status: :unprocessable_entity }
