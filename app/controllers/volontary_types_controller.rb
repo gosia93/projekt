@@ -28,7 +28,7 @@ load_and_authorize_resource
 
     respond_to do |format|
       if @volontary_type.save
-        format.html { redirect_to @volontary_type, notice: 'Volontary type was successfully created.' }
+        format.html { redirect_to @volontary_type, notice: 'Dodano wolontariat.' }
         format.json { render :show, status: :created, location: @volontary_type }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ load_and_authorize_resource
   def update
     respond_to do |format|
       if @volontary_type.update(volontary_type_params)
-        format.html { redirect_to @volontary_type, notice: 'Volontary type was successfully updated.' }
+        format.html { redirect_to @volontary_type, notice: 'Zmiany zostały wprowadzone' }
         format.json { render :show, status: :ok, location: @volontary_type }
       else
         format.html { render :edit }
