@@ -14,11 +14,15 @@ v4 = VolontaryType.create({name:"praca w hospicjum"})
 v5 = VolontaryType.create({name:"praca w ośrodkach specjalnych"})
 v6 = VolontaryType.create({name:"praca z osobami uzależnionymi"})
 v7 = VolontaryType.create({name:"projekty kulturalne"})
-v8 = VolontaryType.create({name:"prjekty edukacyjne"})
+v8 = VolontaryType.create({name:"projekty edukacyjne"})
 v9 = VolontaryType.create({name:"projekty ekologiczne" })
 v10 = VolontaryType.create({name:"pomoc zwierzętom"})
 v11 = VolontaryType.create({name:"projekty sportowe"})
 v12 = VolontaryType.create({name:"inne"})
 
+r1 = Role.create({name: "Wolontariusz"})
+r2 = Role.create({name: "Organjzacja"})
+r3 = Role.create({name: "Osoba prywatna"})
 
+admin = User.create({login: "admin", role_id: "4", email:"strefa_wolontariatu@poczta.fm", password:"strefa123"})
 
